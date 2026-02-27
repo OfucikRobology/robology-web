@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tvorba webu zdarma 2026 | Web na míru bez investice — >robology</title>
+  <meta name="description" content="Tvorba webu zdarma — vytvoříme vám moderní web na míru a pošleme živou ukázku. Předěláme starý web nebo navrhneme nový. Platíte jen měsíční správu od 499 Kč/měsíc. Bez závazku, bez smlouvy." />
+  <meta name="keywords" content="web zdarma, tvorba webu zdarma, vytvoření webu zdarma, webové stránky zdarma, moderní web na míru, redesign webu, předělání webu, web bez investice, levný web, webdesign zdarma, tvorba webových stránek, web pro firmu zdarma, měsíční správa webu, SEO optimalizace webu, responzivní web, profesionální web zdarma" />
+  <meta name="author" content="robology" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#080808" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="content-language" content="cs" />
+  <meta name="geo.region" content="CZ" />
+  <meta name="geo.placename" content="Česká republika" />
+  <link rel="canonical" href="https://robology.io/web-zdarma" />
+  <link rel="alternate" hreflang="cs" href="https://robology.io/web-zdarma" />
+  <link rel="alternate" hreflang="x-default" href="https://robology.io/web-zdarma" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="cs_CZ" />
+  <meta property="og:site_name" content="robology" />
+  <meta property="og:title" content="Tvorba webu zdarma 2026 | Web na míru bez investice — >robology" />
+  <meta property="og:description" content="Vytvoříme vám moderní web na míru zdarma. Pošleme živou ukázku. Platíte jen měsíční správu od 499 Kč. Bez závazku." />
+  <meta property="og:url" content="https://robology.io/web-zdarma" />
+  <meta property="og:image" content="https://robology.io/og-web-zdarma.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="robology — Tvorba webu zdarma. Moderní web na míru bez předem investice." />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tvorba webu zdarma 2026 | >robology" />
+  <meta name="twitter:description" content="Vytvoříme vám moderní web na míru zdarma. Pošleme živou ukázku. Platíte jen správu od 499 Kč/měsíc." />
+  <meta name="twitter:image" content="https://robology.io/og-web-zdarma.jpg" />
+  <meta name="twitter:image:alt" content="robology — Tvorba webu zdarma" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- DNS prefetch & preconnect for performance -->
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link rel="dns-prefetch" href="https://api.web3forms.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* ─── RESET & BASE ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent:   #C9F054;
+      --bg:       #080808;
+      --surface:  #111111;
+      --border:   rgba(255,255,255,0.07);
+      --text:     #F0F0F0;
+      --muted:    rgba(240,240,240,0.45);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    html { scroll-behavior: auto; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    ::selection { background: var(--accent); color: var(--bg); }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; }
+    img { display: block; max-width: 100%; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    /* ─── GRAIN OVERLAY ─────────────────────────────────────────── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.035;
+      pointer-events: none;
+      z-index: 9000;
+    }
+
+    /* ─── CUSTOM CURSOR ─────────────────────────────────────────── */
+    #cur-dot {
+      position: fixed;
+      width: 7px; height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+    }
+    #cur-ring {
+      position: fixed;
+      width: 34px; height: 34px;
+      border: 1.5px solid rgba(201,240,84,0.45);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: width .35s var(--ease-spring), height .35s var(--ease-spring), border-color .3s ease, background .3s ease;
+    }
+    #cur-ring.expand {
+      width: 54px; height: 54px;
+      border-color: var(--accent);
+    }
+
+    /* ─── SCROLL PROGRESS ───────────────────────────────────────── */
+    #scroll-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: var(--accent);
+      z-index: 8000;
+      transform-origin: left;
+      transform: scaleX(0);
+      will-change: transform;
+    }
+
+    /* ─── MOBILE MENU ───────────────────────────────────────────── */
+    #mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(8,8,8,0.97);
+      z-index: 600;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    #mobile-menu.open { display: flex; }
+    #mobile-menu a {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      transition: color .2s ease;
+    }
+    #mobile-menu a:hover { color: var(--accent); }
+    #mobile-close {
+      position: absolute;
+      top: 24px; right: 28px;
+      background: none;
+      border: 1px solid var(--border);
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      color: var(--text);
+      font-size: 1rem;
+      cursor: none;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color .25s ease, color .25s ease;
+    }
+    #mobile-close:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ─── NAVIGATION ────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      padding: 22px 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: padding .35s ease, background .35s ease, border-color .35s ease;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      padding: 14px 52px;
+      background: rgba(8,8,8,0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom-color: var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      cursor: none;
+    }
+    .nav-logo .gt { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 38px;
+    }
+    .nav-links a {
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.01em;
+      position: relative;
+      transition: color .25s ease;
+      cursor: none;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width .3s ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .nav-badge::after { background: var(--accent); }
+    .nav-badge-dot {
+      width: 5px; height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+
+    .nav-btn {
+      padding: 9px 22px;
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      border-radius: 100px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: none;
+      transition: background .25s ease, transform .2s var(--ease-spring);
+    }
+    .nav-btn:hover { background: var(--accent); transform: translateY(-1px); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: none;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px; height: 1.5px;
+      background: var(--text);
+    }
+
+    /* ─── SECTION SCAFFOLDING ───────────────────────────────────── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 52px;
+    }
+
+    section { position: relative; overflow: hidden; }
+
+    .s-label {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .s-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+    }
+
+    /* ─── REVEAL ANIMATIONS ─────────────────────────────────────── */
+    .r { opacity: 0; transform: translateY(32px); }
+
+    /* Split text */
+    .sw { display: inline-block; overflow: hidden; vertical-align: bottom; }
+    .swi { display: inline-block; transform: translateY(108%); }
+
+    /* ─── BUTTONS ───────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 30px;
+      border-radius: 100px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: none;
+      border: none;
+      transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s var(--ease-spring);
+      will-change: transform;
+    }
+    .btn-white { background: var(--text); color: var(--bg); }
+    .btn-white:hover { background: var(--accent); transform: translateY(-3px) scale(1.02); }
+    .btn-ghost { background: transparent; color: var(--text); border: 1px solid rgba(255,255,255,0.18); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+    .btn-accent { background: var(--accent); color: var(--bg); }
+    .btn-accent:hover { opacity: 0.88; transform: translateY(-3px) scale(1.02); }
+
+    /* ─── HERO ──────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 52px 80px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+    .eyebrow-dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.75); }
+    }
+
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3.2rem, 6.5vw, 5.8rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+      margin-bottom: 30px;
+      max-width: 900px;
+    }
+    .hero-title .a { color: var(--accent); }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      line-height: 1.78;
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 44px;
+    }
+    .hero-sub strong { color: var(--text); font-weight: 500; }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* ─── STEPS SECTION ────────────────────────────────────────── */
+    #steps { padding: 130px 0; }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 56px;
+    }
+
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 28px;
+      position: relative;
+      transition: transform .4s var(--ease-spring), border-color .3s ease;
+    }
+    .step-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% -10%, rgba(201,240,84,0.1), transparent 65%);
+      opacity: 0;
+      transition: opacity .4s ease;
+      border-radius: 20px;
+    }
+    .step-card:hover { transform: translateY(-7px); border-color: rgba(201,240,84,0.22); }
+    .step-card:hover::before { opacity: 1; }
+
+    .step-icon {
+      width: 48px; height: 48px;
+      background: rgba(201,240,84,0.1);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 22px;
+    }
+    .step-num {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: rgba(240,240,240,0.25);
+      margin-bottom: 12px;
+    }
+    .step-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.28rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .step-desc {
+      font-size: 0.84rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    /* ─── PRICING SECTION (light) ──────────────────────────────── */
+    #pricing {
+      padding: 130px 0;
+      background: #F2F2F0;
+      color: var(--bg);
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .pricing-header .s-title { color: var(--bg); }
+    .pricing-header .s-label { color: rgba(8,8,8,0.35); }
+    .pricing-sub {
+      font-size: 1.05rem;
+      line-height: 1.78;
+      color: rgba(8,8,8,0.55);
+      max-width: 540px;
+      margin: 18px auto 0;
+    }
+
+    .pricing-card {
+      max-width: 680px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid rgba(8,8,8,0.08);
+      border-radius: 24px;
+      padding: 48px;
+      text-align: center;
+    }
+    .pricing-amount {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--bg);
+      margin-bottom: 8px;
+    }
+    .pricing-amount span {
+      font-size: 0.4em;
+      font-weight: 600;
+      color: rgba(8,8,8,0.45);
+      letter-spacing: 0;
+    }
+    .pricing-note {
+      font-size: 0.84rem;
+      color: rgba(8,8,8,0.45);
+      margin-bottom: 36px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      text-align: left;
+      margin-bottom: 36px;
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: rgba(8,8,8,0.7);
+      padding: 10px 14px;
+      background: rgba(8,8,8,0.03);
+      border-radius: 10px;
+    }
+    .feature-check {
+      width: 20px; height: 20px;
+      background: rgba(201,240,84,0.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .feature-check svg { width: 12px; height: 12px; }
+
+    .pricing-disclaimer {
+      font-size: 0.82rem;
+      color: rgba(8,8,8,0.4);
+      line-height: 1.65;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ─── WHY SECTION ──────────────────────────────────────────── */
+    #why { padding: 130px 0; }
+
+    .why-content {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .why-text {
+      font-size: 1.05rem;
+      line-height: 1.82;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .why-text strong { color: var(--text); font-weight: 500; }
+
+    /* ─── COMPARISON SECTION ───────────────────────────────────── */
+    #comparison { padding: 130px 0; background: var(--surface); }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .compare-col {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px;
+    }
+    .compare-col.is-accent {
+      border-color: rgba(201,240,84,0.25);
+      background: rgba(201,240,84,0.04);
+    }
+    .compare-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(240,240,240,0.3);
+      margin-bottom: 24px;
+    }
+    .compare-col.is-accent .compare-label { color: var(--accent); }
+    .compare-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--muted);
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-item:last-child { border-bottom: none; }
+    .compare-icon {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .compare-col.is-accent .compare-item { color: var(--text); }
+
+    /* ─── PROJECTS SECTION ─────────────────────────────────────── */
+    #projects { padding: 130px 0; background: #0A0A0A; }
+
+    /* ─── FAQ SECTION (light) ──────────────────────────────────── */
+    #faq {
+      padding: 130px 0;
+      background: #F2F2F0;
+      color: var(--bg);
+    }
+    #faq .s-label { color: rgba(8,8,8,0.35); }
+    #faq .s-title { color: var(--bg); }
+
+    .faq-list {
+      max-width: 720px;
+      margin: 56px auto 0;
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(8,8,8,0.1);
+    }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 22px 0;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--bg);
+      cursor: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: color .25s ease;
+    }
+    .faq-q:hover { color: rgba(8,8,8,0.6); }
+    .faq-icon {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: rgba(8,8,8,0.06);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: background .25s ease, transform .35s var(--ease-spring);
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: rgba(201,240,84,0.3); }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .45s ease, padding .35s ease;
+    }
+    .faq-a-inner {
+      padding-bottom: 22px;
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: rgba(8,8,8,0.55);
+    }
+
+    /* ─── CTA REPEAT ───────────────────────────────────────────── */
+    .cta-strip {
+      text-align: center;
+      padding: 48px 0 0;
+    }
+
+    /* ─── FORM SECTION ─────────────────────────────────────────── */
+    #form-section { padding: 130px 0; }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .form-header .s-title {
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+    }
+    .form-sub {
+      font-size: 1rem;
+      line-height: 1.78;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 16px auto 0;
+    }
+
+    .form-box {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 46px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 20px; }
+    .f-label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(240,240,240,0.35);
+      margin-bottom: 9px;
+    }
+    .f-input, .f-select, .f-textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 13px 17px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color .25s ease, background .25s ease;
+    }
+    .f-input:focus, .f-select:focus, .f-textarea:focus {
+      border-color: var(--accent);
+      background: rgba(201,240,84,0.04);
+    }
+    .f-input::placeholder, .f-textarea::placeholder { color: rgba(240,240,240,0.2); }
+    .f-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(240,240,240,0.35)' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      cursor: none;
+    }
+    .f-select option { background: #111; }
+    .f-textarea { resize: vertical; min-height: 115px; }
+    .btn-submit {
+      width: 100%;
+      padding: 15px 28px;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      border-radius: 12px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: none;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      margin-top: 6px;
+      transition: opacity .25s ease, transform .25s var(--ease-spring);
+    }
+    .btn-submit:hover:not(:disabled) { opacity: 0.88; transform: translateY(-2px); }
+    .btn-submit:disabled { opacity: 0.55; }
+
+    #form-success {
+      display: none;
+      text-align: center;
+      padding: 48px 0;
+    }
+    .success-icon {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: rgba(201,240,84,0.12);
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      font-size: 1.4rem;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .form-group.hidden { display: none; }
+
+    /* ─── FOOTER ────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .foot-copy { font-size: 0.78rem; color: rgba(240,240,240,0.28); }
+    .foot-logo { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; letter-spacing: -0.03em; }
+    .foot-logo .gt { color: var(--accent); }
+    .foot-links { display: flex; gap: 24px; }
+    .foot-links a { font-size: 0.78rem; color: rgba(240,240,240,0.28); transition: color .25s ease; cursor: none; }
+    .foot-links a:hover { color: var(--accent); }
+
+    /* ─── RESPONSIVE ────────────────────────────────────────────── */
+
+    /* ── Tablet ── */
+    @media (max-width: 1100px) {
+      .steps-grid { grid-template-columns: 1fr; gap: 14px; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      nav.scrolled { padding: 12px 20px; }
+      .nav-links, .nav-btn { display: none; }
+      .hamburger { display: flex; }
+      .nav-logo { font-size: 1.1rem; }
+
+      .container { padding: 0 20px; }
+      section { padding: 80px 0 !important; }
+
+      #hero { padding: 100px 20px 56px !important; min-height: auto; }
+      .hero-title {
+        font-size: clamp(2.2rem, 9vw, 3.4rem);
+        line-height: 1.02;
+        margin-bottom: 22px;
+      }
+      .hero-eyebrow { font-size: 0.62rem; margin-bottom: 20px; }
+      .hero-sub { font-size: 0.9rem; line-height: 1.7; margin-bottom: 32px; }
+      .hero-btns { gap: 10px; }
+      .hero-btns .btn { padding: 12px 24px; font-size: 0.84rem; width: 100%; justify-content: center; }
+
+      .sw { display: block; overflow: hidden; }
+
+      .s-title { font-size: clamp(1.8rem, 7vw, 2.6rem); }
+      .s-label { font-size: 0.62rem; margin-bottom: 12px; }
+
+      .steps-grid { margin-top: 36px; }
+      .step-card { padding: 28px 22px; }
+
+      .pricing-card { padding: 32px 24px; }
+      .pricing-amount { font-size: clamp(2.2rem, 8vw, 3rem); }
+
+      .why-content { max-width: 100%; }
+      .why-text { font-size: 0.95rem; }
+
+      .compare-col { padding: 28px 22px; }
+
+      .faq-q { font-size: 0.95rem; padding: 18px 0; }
+      .faq-a-inner { font-size: 0.86rem; }
+
+      .form-header .s-title { font-size: clamp(2rem, 8vw, 2.8rem); }
+      .form-box { padding: 28px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+
+      footer { padding: 20px; flex-direction: column; gap: 14px; text-align: center; }
+      .foot-logo { display: none; }
+
+      #mobile-menu a { font-size: clamp(1.8rem, 8vw, 2.8rem); }
+    }
+
+    /* ── Small phones ── */
+    @media (max-width: 420px) {
+      #cur-dot, #cur-ring { display: none; }
+      body { cursor: auto; }
+      a, button, [onclick] { cursor: pointer; }
+
+      #hero { padding: 92px 16px 48px !important; }
+      .container { padding: 0 16px; }
+      nav { padding: 14px 16px; }
+      nav.scrolled { padding: 11px 16px; }
+
+      .hero-title { font-size: 2rem; }
+      .hero-sub { font-size: 0.86rem; }
+      .s-title { font-size: 1.65rem; }
+
+      .form-box { padding: 24px 16px; }
+    }
+
+    /* ─── BREADCRUMB ───────────────────────────────────────── */
+    .breadcrumb {
+      position: absolute;
+      top: 90px;
+      left: 52px;
+      z-index: 10;
+    }
+    .breadcrumb ol {
+      display: flex;
+      list-style: none;
+      gap: 0;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .breadcrumb li { display: flex; align-items: center; }
+    .breadcrumb li + li::before {
+      content: '/';
+      margin: 0 8px;
+      color: rgba(240,240,240,0.2);
+    }
+    .breadcrumb a {
+      color: var(--muted);
+      transition: color .25s ease;
+      cursor: none;
+    }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb [aria-current] { color: var(--text); }
+
+    @media (max-width: 768px) {
+      .breadcrumb { top: 70px; left: 20px; }
+      .breadcrumb ol { font-size: 0.65rem; }
+    }
+    @media (max-width: 420px) {
+      .breadcrumb { left: 16px; top: 64px; }
+    }
+  </style>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Je to opravdu zdarma? Kde je háček?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Žádný háček. Vytvoříme vám ukázkový web bez jakéhokoli závazku. Pokud se vám nelíbí, nic neplatíte. Pokud ho chcete, platíte pouze měsíční správu od 499 Kč."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Co když se mi ukázka nebude líbit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Vůbec nic se neděje. Web je naše investice do vztahu s vámi. Pokud to nebude sedět, rozejdeme se bez problémů."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak dlouho trvá vytvoření ukázky?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Obvykle 5–10 pracovních dní od vyplnění formuláře. Záleží na rozsahu projektu."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mohu si web upravovat sám?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ano, většinu obsahu můžete spravovat přes jednoduchý administrační panel. Pro složitější změny jsme tu my."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Co je přesně v měsíční správě?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Hosting, doména, SSL, analytiky, SEO optimalizace, aktualizace, zálohy, monitoring a prioritní podpora. Vše, co váš web potřebuje k tomu, aby fungoval a rostl."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Patří mi web, nebo patří vám?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Web je váš. Pokud se kdykoliv rozhodnete odejít, předáme vám veškeré zdrojové kódy a podklady."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Na jakých technologiích web stavíte?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Používáme moderní stack — React/Next.js, TailwindCSS, headless CMS. Weby jsou rychlé, SEO optimalizované a mobilně responzivní."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Tvorba webu zdarma",
+    "url": "https://robology.io/web-zdarma",
+    "description": "Tvorba webu zdarma — vytvoříme vám moderní web na míru a pošleme živou ukázku. Platíte jen měsíční správu od 499 Kč.",
+    "inLanguage": "cs",
+    "datePublished": "2026-02-27",
+    "dateModified": "2026-02-27",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "robology",
+          "item": "https://robology.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tvorba webu zdarma",
+          "item": "https://robology.io/web-zdarma"
+        }
+      ]
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "robology",
+      "url": "https://robology.io",
+      "inLanguage": "cs"
+    },
+    "mainEntity": {
+      "@type": "Service",
+      "name": "Tvorba webu zdarma",
+      "description": "Vytvoříme vám moderní web na míru zdarma — předěláme starý web nebo navrhneme nový. Pošleme živou ukázku bez závazku. Platíte jen měsíční správu.",
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "robology",
+        "url": "https://robology.io",
+        "email": "ondrej.fucik@robology.io",
+        "foundingDate": "2017",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "CZ",
+          "addressLocality": "Česká republika"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "CZ"
+        },
+        "knowsLanguage": ["cs", "en"],
+        "sameAs": [
+          "https://www.instagram.com/robology.io/"
+        ]
+      },
+      "serviceType": "Tvorba webových stránek",
+      "areaServed": {
+        "@type": "Country",
+        "name": "CZ"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Web zdarma — měsíční správa",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Tvorba webu zdarma + měsíční správa",
+            "description": "Vývoj webu na míru zdarma. Měsíční správa zahrnuje hosting, doménu, SSL, SEO optimalizaci, analytiky, zálohy, monitoring 24/7 a prioritní podporu.",
+            "price": "499",
+            "priceCurrency": "CZK",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "499",
+              "priceCurrency": "CZK",
+              "unitText": "měsíc",
+              "referenceQuantity": {
+                "@type": "QuantitativeValue",
+                "value": "1",
+                "unitCode": "MON"
+              }
+            },
+            "availability": "https://schema.org/InStock",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tvorba webu na míru s měsíční správou",
+              "description": "Moderní responzivní web, SEO optimalizace, hosting, doména, SSL, analytiky, zálohy, monitoring a podpora."
+            }
+          }
+        ]
+      }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Jak získat web zdarma od robology",
+    "description": "Získejte moderní web na míru ve 3 jednoduchých krocích — zdarma a bez závazku.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Pošlete nám web",
+        "text": "Vyplníte jednoduchý formulář — buď nám dáte URL vašeho současného webu, nebo popíšete, co potřebujete."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Vytvoříme ukázku",
+        "text": "Náš tým navrhne a zakóduje váš nový web. Pošleme vám odkaz s živou ukázkou — bez jakéhokoli závazku."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Rozhodněte se",
+        "text": "Líbí se vám to? Dokončíme web společně a nasadíme ho. Nechcete? Žádný problém, nic neplatíte."
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- Cursor -->
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+
+<!-- Scroll progress -->
+<div id="scroll-bar"></div>
+
+<!-- Mobile menu -->
+<div id="mobile-menu">
+  <button id="mobile-close" aria-label="Zavřít menu">&#10005;</button>
+  <a href="/" onclick="closeMM()">Domů</a>
+  <a href="/#services" onclick="closeMM()">Služby</a>
+  <a href="/#projects" onclick="closeMM()">Projekty</a>
+  <a href="/#about" onclick="closeMM()">O nás</a>
+  <a href="/#contact" onclick="closeMM()">Kontakt</a>
+  <a href="/web-zdarma" onclick="closeMM()" style="color:var(--accent)">Web zdarma</a>
+</div>
+
+<!-- Navigation -->
+<nav id="navbar" aria-label="Hlavní navigace">
+  <a href="/" class="nav-logo"><span class="gt">&gt;</span>robology</a>
+  <ul class="nav-links">
+    <li><a href="/#services">Služby</a></li>
+    <li><a href="/#projects">Projekty</a></li>
+    <li><a href="/#about">O nás</a></li>
+    <li><a href="/#contact">Kontakt</a></li>
+    <li><a href="/web-zdarma" class="nav-badge">Web zdarma <span class="nav-badge-dot"></span></a></li>
+  </ul>
+  <a href="#form-section" class="nav-btn">Chci web zdarma →</a>
+  <button class="hamburger" id="hamburger" onclick="openMM()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<noscript>
+  <p>robology — Vytvoříme vám ukázkový web zdarma. Předěláme starý nebo navrhneme nový. Platíte jen měsíční správu od 499 Kč. Kontaktujte nás na ondrej.fucik@robology.io.</p>
+</noscript>
+
+<main>
+<!-- Breadcrumb navigation -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">robology</a></li>
+    <li aria-current="page">Tvorba webu zdarma</li>
+  </ol>
+</nav>
+
+<!-- ════════════════════ HERO ════════════════════ -->
+<section id="hero">
+  <div class="hero-eyebrow" id="hero-eyebrow">
+    <span class="eyebrow-dot"></span>
+    tvorba webu na míru bez investice předem
+  </div>
+  <h1 class="hero-title">
+    <div class="sw"><span class="swi">Nový web?</span></div><br>
+    <div class="sw"><span class="swi"><span class="a">Zaplatíte,</span> až když</span></div><br>
+    <div class="sw"><span class="swi">budete chtít.</span></div>
+    <span class="sr-only">Tvorba webu zdarma od robology — profesionální webové stránky na míru bez investice předem. Vytvoříme vám moderní responzivní web a pošleme živou ukázku. Platíte jen měsíční správu od 499 Kč.</span>
+  </h1>
+  <p class="hero-sub" id="hero-sub">
+    Vytvoříme vám <strong>moderní web na míru</strong> — předěláme váš starý nebo navrhneme úplně nový.
+    Pošleme vám odkaz na živou ukázku. A pokud se vám líbí, <strong>společně ho dokončíme a nasadíme.</strong>
+  </p>
+  <div class="hero-btns" id="hero-btns">
+    <a href="#form-section" class="btn btn-accent">Chci ukázkový web zdarma →</a>
+    <a href="#steps" class="btn btn-ghost">Jak to funguje ↓</a>
+  </div>
+</section>
+
+<!-- ════════════════════ STEPS ════════════════════ -->
+<section id="steps" aria-label="Jak získat web zdarma ve 3 krocích">
+  <div class="container">
+    <p class="s-label r">3 jednoduché kroky</p>
+    <h2 class="s-title r">Jak získat web zdarma?</h2>
+
+    <div class="steps-grid">
+      <article class="step-card r">
+        <div class="step-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9F054" stroke-width="2" role="img" aria-label="Ikona webu"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="step-num">01</div>
+        <h3 class="step-title">Pošlete nám váš web</h3>
+        <p class="step-desc">Vyplníte jednoduchý formulář — buď nám dáte URL vašeho současného webu k předělání, nebo popíšete, jaký nový web potřebujete. To je vše.</p>
+      </article>
+
+      <article class="step-card r">
+        <div class="step-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9F054" stroke-width="2" role="img" aria-label="Ikona kódu"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div class="step-num">02</div>
+        <h3 class="step-title">Vytvoříme vám web na míru</h3>
+        <p class="step-desc">Náš tým navrhne design a zakóduje váš nový responzivní web. Pošleme vám odkaz na živou ukázku — bez jakéhokoli závazku.</p>
+      </article>
+
+      <article class="step-card r">
+        <div class="step-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9F054" stroke-width="2" role="img" aria-label="Ikona potvrzení"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="step-num">03</div>
+        <h3 class="step-title">Rozhodněte se</h3>
+        <p class="step-desc">Líbí se vám to? Dokončíme web společně a nasadíme ho na vaši doménu. Nechcete? Žádný problém, nic neplatíte.</p>
+      </article>
+    </div>
+
+    <div class="cta-strip r">
+      <a href="#form-section" class="btn btn-accent">Chci web zdarma →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ PRICING ════════════════════ -->
+<section id="pricing" aria-label="Ceník tvorby webu zdarma">
+  <div class="container">
+    <div class="pricing-header">
+      <p class="s-label r">Cena tvorby webu</p>
+      <h2 class="s-title r">Za tvorbu webu neplatíte ani korunu.</h2>
+      <p class="pricing-sub r">Jediné, co platíte, je měsíční správa webových stránek. A ta obsahuje všechno, co váš web potřebuje.</p>
+    </div>
+
+    <div class="pricing-card r">
+      <div class="pricing-amount">od <data value="499">499 Kč</data> <span>/ měsíc</span></div>
+      <p class="pricing-note">Vývoj a tvorba webu na míru je zcela zdarma</p>
+
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Hosting a doména
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          SSL certifikát
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Analytiky webu
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          SEO optimalizace
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Aktualizace obsahu
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Technická správa a zálohy
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Monitoring 24/7
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Prioritní podpora
+        </div>
+      </div>
+
+      <p class="pricing-disclaimer">Žádné skryté poplatky. Žádná dlouhodobá smlouva. Pokud nebudete spokojeni, můžete kdykoli odejít.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ WHY ════════════════════ -->
+<section id="why" aria-label="Proč nabízíme tvorbu webu zdarma">
+  <div class="container">
+    <p class="s-label r">Proč to děláme</p>
+    <h2 class="s-title r">Proč nabízíme tvorbu webu zdarma?</h2>
+
+    <div class="why-content" style="margin-top:40px;">
+      <p class="why-text r"><strong>Věříme, že profesionální webové stránky by měly být dostupné každému podnikání.</strong> Víme, že investice desítek tisíc korun předem je pro mnohé firmy bariéra — a také víme, že jakmile uvidíte svůj nový moderní web, nepustíte ho.</p>
+      <p class="why-text r">Proto jsme obrátili klasický model tvorby webových stránek: nejdřív vám dodáme hodnotu v podobě hotového webu, pak se dohodneme na spolupráci.</p>
+      <p class="why-text r"><strong>Naše weby jsou naší vizitkou.</strong> Každý projekt, který vytvoříme — ať už jde o firemní prezentaci, e-shop nebo webovou aplikaci — je důkazem kvality naší práce. Proto si můžeme dovolit nabídnout vám <a href="#form-section" style="color:var(--accent);border-bottom:1px solid rgba(201,240,84,0.3);">tvorbu webu zdarma</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ COMPARISON ════════════════════ -->
+<section id="comparison" aria-label="Srovnání tvorby webu — klasická agentura vs robology">
+  <div class="container">
+    <p class="s-label r">Srovnání tvorby webu</p>
+    <h2 class="s-title r">Tradiční postup vs. <span style="color:var(--accent)">&gt;robology</span></h2>
+
+    <div class="compare-grid">
+      <div class="compare-col r">
+        <div class="compare-label">Tradiční postup</div>
+        <div class="compare-item">
+          <svg class="compare-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(240,240,240,0.3)" stroke-width="2" role="img" aria-label="Nevýhoda"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Zaplatíte 30–150 tisíc předem
+        </div>
+        <div class="compare-item">
+          <svg class="compare-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(240,240,240,0.3)" stroke-width="2" role="img" aria-label="Nevýhoda"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Nevíte, jak web bude vypadat
+        </div>
+        <div class="compare-item">
+          <svg class="compare-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(240,240,240,0.3)" stroke-width="2" role="img" aria-label="Nevýhoda"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Správa webu = další náklady
+        </div>
+        <div class="compare-item">
+          <svg class="compare-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(240,240,240,0.3)" stroke-width="2" role="img" aria-label="Nevýhoda"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Aktualizace? Další faktura
+        </div>
+        <div class="compare-item">
+          <svg class="compare-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(240,240,240,0.3)" stroke-width="2" role="img" aria-label="Nevýhoda"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Web se po roce zastaral
+        </div>
+      </div>
+
+      <div class="compare-col is-accent r">
+        <div class="compare-label">&gt;robology</div>
+        <div class="compare-item">
+          <svg class="compare-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9F054" stroke-width="2.5" role="img" aria-label="Výhoda"><polyline points="20 6 9 17 4 12"/></svg>
+          Platíte, až když jste spokojeni
+        </div>
+        <div class="compare-item">
+          <svg class="compare-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9F054" stroke-width="2.5" role="img" aria-label="Výhoda"><polyline points="20 6 9 17 4 12"/></svg>
+          Ukázku dostanete zdarma
+        </div>
+        <div class="compare-item">
+          <svg class="compare-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9F054" stroke-width="2.5" role="img" aria-label="Výhoda"><polyline points="20 6 9 17 4 12"/></svg>
+          Vše v jedné měsíční platbě
+        </div>
+        <div class="compare-item">
+          <svg class="compare-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9F054" stroke-width="2.5" role="img" aria-label="Výhoda"><polyline points="20 6 9 17 4 12"/></svg>
+          Průběžné optimalizace v ceně
+        </div>
+        <div class="compare-item">
+          <svg class="compare-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9F054" stroke-width="2.5" role="img" aria-label="Výhoda"><polyline points="20 6 9 17 4 12"/></svg>
+          Váš web stále vylepšujeme
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ FAQ ════════════════════ -->
+<section id="faq" aria-label="Časté otázky">
+  <div class="container">
+    <div style="text-align:center;">
+      <p class="s-label r">FAQ</p>
+      <h2 class="s-title r">Časté otázky</h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item r">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Je to opravdu zdarma? Kde je háček?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Žádný háček. Vytvoříme vám ukázkový web bez jakéhokoli závazku. Pokud se vám nelíbí, nic neplatíte. Pokud ho chcete, platíte pouze měsíční správu od 499 Kč.</div>
+        </div>
+      </div>
+
+      <div class="faq-item r">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Co když se mi ukázka nebude líbit?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Vůbec nic se neděje. Web je naše investice do vztahu s vámi. Pokud to nebude sedět, rozejdeme se bez problémů.</div>
+        </div>
+      </div>
+
+      <div class="faq-item r">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Jak dlouho trvá vytvoření ukázky?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Obvykle 5–10 pracovních dní od vyplnění formuláře. Záleží na rozsahu projektu.</div>
+        </div>
+      </div>
+
+      <div class="faq-item r">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Mohu si web upravovat sám?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Ano, většinu obsahu můžete spravovat přes jednoduchý administrační panel. Pro složitější změny jsme tu my.</div>
+        </div>
+      </div>
+
+      <div class="faq-item r">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Co je přesně v měsíční správě?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Hosting, doména, SSL, analytiky, SEO optimalizace, aktualizace, zálohy, monitoring a prioritní podpora. Vše, co váš web potřebuje k tomu, aby fungoval a rostl.</div>
+        </div>
+      </div>
+
+      <div class="faq-item r">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Patří mi web, nebo patří vám?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Web je váš. Pokud se kdykoliv rozhodnete odejít, předáme vám veškeré zdrojové kódy a podklady.</div>
+        </div>
+      </div>
+
+      <div class="faq-item r">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Na jakých technologiích web stavíte?
+          <span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Používáme moderní stack — React/Next.js, TailwindCSS, headless CMS. Weby jsou rychlé, SEO optimalizované a mobilně responzivní.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-strip r" style="margin-top:48px; text-align:center;">
+      <a href="#form-section" class="btn btn-white" style="color:var(--bg);">Chci web zdarma →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ FORM ════════════════════ -->
+<section id="form-section" aria-label="Formulář pro vytvoření webu zdarma">
+  <div class="container">
+    <div class="form-header">
+      <h2 class="s-title r">Začněte s tvorbou webu zdarma</h2>
+      <p class="form-sub r">Vyplňte formulář a do pár dní vám pošleme ukázku vašeho nového webu — bez závazků.</p>
+    </div>
+
+    <div class="form-box r">
+      <form id="wz-form">
+        <input type="hidden" name="access_key" value="b73e8686-52d2-41bc-b382-2fca2241a26e" />
+        <input type="hidden" name="subject" value="Web zdarma — nová poptávka z robology.io" />
+        <input type="hidden" name="from_name" value="robology.io — Web zdarma" />
+        <!-- Honeypot -->
+        <input type="checkbox" name="botcheck" style="display:none!important" tabindex="-1" autocomplete="off" />
+        <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;">
+          <label>Nevyplňujte toto pole<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+        </div>
+        <input type="hidden" name="_form_loaded_at" id="form-ts" value="" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="f-label">Vaše jméno *</label>
+            <input type="text" name="name" class="f-input" placeholder="Např. Jan Novák" required />
+          </div>
+          <div class="form-group">
+            <label class="f-label">E-mail *</label>
+            <input type="email" name="email" class="f-input" placeholder="jan@firma.cz" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="f-label">Telefon</label>
+          <input type="tel" name="phone" class="f-input" placeholder="+420..." />
+        </div>
+
+        <div class="form-group">
+          <label class="f-label">Typ projektu *</label>
+          <select name="project_type" class="f-select" id="project-type" required>
+            <option value="">Vyberte typ...</option>
+            <option value="redesign">Předělání stávajícího webu</option>
+            <option value="new">Nový web od nuly</option>
+          </select>
+        </div>
+
+        <div class="form-group hidden" id="url-group">
+          <label class="f-label">URL vašeho současného webu</label>
+          <input type="url" name="current_url" class="f-input" id="current-url" placeholder="https://" />
+        </div>
+
+        <div class="form-group">
+          <label class="f-label">Popište váš byznys a co od webu očekáváte</label>
+          <textarea name="message" class="f-textarea" placeholder="Čím se zabýváte, kdo jsou vaši zákazníci, co od webu potřebujete..."></textarea>
+        </div>
+
+        <div id="form-error" style="display:none;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);border-radius:12px;padding:12px 16px;margin-bottom:14px;font-size:.84rem;color:#ef4444;">Nepodařilo se odeslat zprávu. Zkuste to prosím znovu.</div>
+
+        <button type="submit" class="btn-submit" id="submit-btn">
+          Chci web zdarma →
+        </button>
+      </form>
+
+      <div id="form-success">
+        <div class="success-icon">&#10003;</div>
+        <div style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:8px;">Díky!</div>
+        <div style="font-size:.875rem;color:var(--muted);line-height:1.75;">Ondřej se vám ozve a brzy vám pošleme odkaz na ukázku vašeho nového webu.</div>
+        <button onclick="resetForm()" style="margin-top:24px;background:none;border:1px solid var(--border);color:var(--muted);padding:9px 22px;border-radius:100px;font-size:.82rem;cursor:none;transition:all .25s ease;" onmouseover="this.style.borderColor='#C9F054';this.style.color='#C9F054'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.color='rgba(240,240,240,0.45)'">Poslat další zprávu</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="foot-copy">&copy; 2025–2026 &gt;robology. Všechna práva vyhrazena.</div>
+  <a href="/" class="foot-logo"><span class="gt">&gt;</span>robology</a>
+  <div class="foot-links">
+    <a href="/">Hlavní stránka</a>
+    <a href="/#contact">Kontakt</a>
+  </div>
+</footer>
+
+<!-- ════════════════════ JS ════════════════════ -->
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// Hide hero elements that animate in
+gsap.set('#hero-eyebrow, #hero-sub, #hero-btns', { opacity: 0, y: 20 });
+
+/* ── Cursor ─────────────────────────────────────── */
+const dot  = document.getElementById('cur-dot');
+const ring = document.getElementById('cur-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  gsap.to(dot, { x: mx, y: my, duration: 0.08, ease: 'none' });
+});
+
+(function loopRing() {
+  rx += (mx - rx) * 0.11;
+  ry += (my - ry) * 0.11;
+  ring.style.left = rx + 'px';
+  ring.style.top  = ry + 'px';
+  requestAnimationFrame(loopRing);
+})();
+
+document.querySelectorAll('a, button, [onclick], .step-card').forEach(el => {
+  el.addEventListener('mouseenter', () => ring.classList.add('expand'));
+  el.addEventListener('mouseleave', () => ring.classList.remove('expand'));
+});
+
+/* ── Scroll progress ─────────────────────────────── */
+const scrollBar = document.getElementById('scroll-bar');
+window.addEventListener('scroll', () => {
+  const p = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+  scrollBar.style.transform = `scaleX(${p})`;
+}, { passive: true });
+
+/* ── Navbar ──────────────────────────────────────── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* ── Mobile menu ─────────────────────────────────── */
+function openMM()  { document.getElementById('mobile-menu').classList.add('open'); }
+function closeMM() { document.getElementById('mobile-menu').classList.remove('open'); }
+document.getElementById('mobile-close').addEventListener('click', closeMM);
+
+/* ── Smooth anchor scroll ────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    const t = document.querySelector(href);
+    if (!t) return;
+    e.preventDefault();
+    const y = t.getBoundingClientRect().top + window.scrollY - 76;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  });
+});
+
+/* ── Hero animations (immediate, no loader on subpage) ── */
+window.addEventListener('load', () => {
+  // Word reveal
+  gsap.to('.hero-title .swi', {
+    y: 0, duration: 1, stagger: 0.14, ease: 'power4.out', delay: 0.15
+  });
+
+  gsap.to('#hero-eyebrow', { opacity: 1, y: 0, duration: 0.8, delay: 0.35, ease: 'power3.out' });
+  gsap.to('#hero-sub',     { opacity: 1, y: 0, duration: 0.8, delay: 0.55, ease: 'power3.out' });
+  gsap.to('#hero-btns',    { opacity: 1, y: 0, duration: 0.8, delay: 0.7,  ease: 'power3.out' });
+
+  initScrollAnims();
+});
+
+/* ── Scroll-triggered animations ────────────────── */
+function initScrollAnims() {
+  gsap.utils.toArray('.r').forEach(el => {
+    gsap.fromTo(el,
+      { opacity: 0, y: 36 },
+      { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 86%', toggleActions: 'play none none none' }
+      }
+    );
+  });
+
+  // Step cards stagger
+  gsap.fromTo('.step-card',
+    { opacity: 0, y: 44 },
+    { opacity: 1, y: 0, duration: 0.75, stagger: 0.12, ease: 'power3.out',
+      scrollTrigger: { trigger: '.steps-grid', start: 'top 82%' }
+    }
+  );
+
+}
+
+/* ── Magnetic effect on CTA buttons ─────────────── */
+document.querySelectorAll('.btn, .nav-btn, .btn-submit').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const r = btn.getBoundingClientRect();
+    const dx = e.clientX - r.left - r.width  / 2;
+    const dy = e.clientY - r.top  - r.height / 2;
+    gsap.to(btn, { x: dx * 0.22, y: dy * 0.22, duration: 0.35, ease: 'power2.out' });
+  });
+  btn.addEventListener('mouseleave', () => {
+    gsap.to(btn, { x: 0, y: 0, duration: 0.55, ease: 'elastic.out(1, 0.45)' });
+  });
+});
+
+/* ── FAQ accordion ──────────────────────────────── */
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const answer = item.querySelector('.faq-a');
+  const inner = answer.querySelector('.faq-a-inner');
+  const isOpen = item.classList.contains('open');
+
+  // Close all others
+  document.querySelectorAll('.faq-item.open').forEach(other => {
+    if (other !== item) {
+      other.classList.remove('open');
+      const otherA = other.querySelector('.faq-a');
+      gsap.to(otherA, { maxHeight: 0, duration: 0.35, ease: 'power2.inOut' });
+    }
+  });
+
+  if (isOpen) {
+    item.classList.remove('open');
+    gsap.to(answer, { maxHeight: 0, duration: 0.35, ease: 'power2.inOut' });
+  } else {
+    item.classList.add('open');
+    const h = inner.scrollHeight;
+    gsap.to(answer, { maxHeight: h + 20, duration: 0.45, ease: 'power2.out' });
+  }
+}
+
+/* ── Conditional URL field ──────────────────────── */
+document.getElementById('project-type').addEventListener('change', function() {
+  const urlGroup = document.getElementById('url-group');
+  const urlInput = document.getElementById('current-url');
+  if (this.value === 'redesign') {
+    urlGroup.classList.remove('hidden');
+    urlInput.required = true;
+  } else {
+    urlGroup.classList.add('hidden');
+    urlInput.required = false;
+    urlInput.value = '';
+  }
+});
+
+/* ── Form → Web3Forms + anti-spam ────────────────── */
+document.getElementById('form-ts').value = Date.now();
+
+document.getElementById('wz-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const form = e.target;
+  const btn  = document.getElementById('submit-btn');
+  const errBox = document.getElementById('form-error');
+
+  // Honeypot check
+  if (form.elements.website && form.elements.website.value !== '') {
+    btn.disabled = true;
+    btn.textContent = 'Odesílám...';
+    await new Promise(r => setTimeout(r, 1500));
+    form.style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+    return;
+  }
+
+  // Time check
+  const loadedAt = parseInt(form.elements._form_loaded_at.value, 10);
+  if (loadedAt && (Date.now() - loadedAt) < 3000) {
+    btn.disabled = true;
+    btn.textContent = 'Odesílám...';
+    await new Promise(r => setTimeout(r, 1500));
+    form.style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Odesílám...';
+  errBox.style.display = 'none';
+
+  const formData = new FormData(form);
+  formData.delete('website');
+  formData.delete('_form_loaded_at');
+
+  try {
+    const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+    const json = await res.json();
+
+    if (json.success) {
+      form.style.display = 'none';
+      errBox.style.display = 'none';
+      const suc = document.getElementById('form-success');
+      suc.style.display = 'block';
+      gsap.from(suc, { opacity: 0, y: 20, duration: 0.5, ease: 'power3.out' });
+    } else {
+      throw new Error(json.message || 'Chyba odeslání');
+    }
+  } catch {
+    btn.disabled = false;
+    btn.textContent = 'Chci web zdarma →';
+    errBox.style.display = 'block';
+    gsap.from(errBox, { opacity: 0, y: 10, duration: 0.3, ease: 'power2.out' });
+  }
+});
+
+function resetForm() {
+  document.getElementById('wz-form').reset();
+  document.getElementById('wz-form').style.display = 'block';
+  document.getElementById('form-success').style.display = 'none';
+  document.getElementById('form-error').style.display   = 'none';
+  document.getElementById('submit-btn').disabled = false;
+  document.getElementById('submit-btn').textContent = 'Chci web zdarma →';
+  document.getElementById('url-group').classList.add('hidden');
+  document.getElementById('form-ts').value = Date.now();
+}
+</script>
+</body>
+</html>

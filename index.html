@@ -1,0 +1,2338 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>robology — Tvorba webů, aplikací a AI řešení na míru | Česká digitální agentura</title>
+  <meta name="description" content="Navrhujeme a vyvíjíme weby, mobilní aplikace, AI řešení a software na míru. Pomáháme startupům i zavedeným firmám růst díky kreativním digitálním produktům. 50+ dokončených projektů." />
+  <meta name="keywords" content="tvorba webových stránek, vývoj mobilních aplikací, AI řešení, software na míru, digitální agentura, webdesign, React Native, UX/UI design, SEO optimalizace, Česká republika" />
+  <meta name="author" content="robology" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#080808" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="content-language" content="cs" />
+  <meta name="geo.region" content="CZ" />
+  <meta name="geo.placename" content="Česká republika" />
+  <link rel="canonical" href="https://robology.io/" />
+  <link rel="alternate" hreflang="cs" href="https://robology.io/" />
+  <link rel="alternate" hreflang="x-default" href="https://robology.io/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="cs_CZ" />
+  <meta property="og:site_name" content="robology" />
+  <meta property="og:title" content="robology — Tvorba webů, aplikací a AI řešení na míru" />
+  <meta property="og:description" content="Jsme digitální architekti, kteří boří konvence. Navrhujeme weby, mobilní aplikace, AI řešení a software na míru pro startupy i zavedené firmy." />
+  <meta property="og:url" content="https://robology.io/" />
+  <!-- <meta property="og:image" content="https://robology.io/og-image.jpg" /> -->
+  <!-- <meta property="og:image:width" content="1200" /> -->
+  <!-- <meta property="og:image:height" content="630" /> -->
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="robology — Tvorba webů, aplikací a AI řešení na míru" />
+  <meta name="twitter:description" content="Jsme digitální architekti, kteří boří konvence. Navrhujeme weby, mobilní aplikace, AI řešení a software na míru." />
+  <!-- <meta name="twitter:image" content="https://robology.io/og-image.jpg" /> -->
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* ─── RESET & BASE ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent:   #C9F054;
+      --bg:       #080808;
+      --surface:  #111111;
+      --border:   rgba(255,255,255,0.07);
+      --text:     #F0F0F0;
+      --muted:    rgba(240,240,240,0.45);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    html { scroll-behavior: auto; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    ::selection { background: var(--accent); color: var(--bg); }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; }
+    img { display: block; max-width: 100%; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    /* ─── GRAIN OVERLAY ─────────────────────────────────────────── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.035;
+      pointer-events: none;
+      z-index: 9000;
+    }
+
+    /* ─── CUSTOM CURSOR ─────────────────────────────────────────── */
+    #cur-dot {
+      position: fixed;
+      width: 7px; height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+    }
+    #cur-ring {
+      position: fixed;
+      width: 34px; height: 34px;
+      border: 1.5px solid rgba(201,240,84,0.45);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: width .35s var(--ease-spring), height .35s var(--ease-spring), border-color .3s ease, background .3s ease;
+    }
+    #cur-ring.expand {
+      width: 54px; height: 54px;
+      border-color: var(--accent);
+    }
+    #cur-ring.fill {
+      background: var(--accent);
+      border-color: var(--accent);
+      width: 42px; height: 42px;
+    }
+
+    /* ─── SCROLL PROGRESS ───────────────────────────────────────── */
+    #scroll-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: var(--accent);
+      z-index: 8000;
+      transform-origin: left;
+      transform: scaleX(0);
+      will-change: transform;
+    }
+
+    /* ─── LOADER ────────────────────────────────────────────────── */
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 8500;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    #loader-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.5rem, 8vw, 5.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      overflow: hidden;
+      display: flex;
+    }
+    .l-char {
+      display: inline-block;
+      transform: translateY(105%);
+    }
+    .l-char.accent { color: var(--accent); }
+    #loader-bar {
+      width: 180px; height: 1px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 1px;
+      overflow: hidden;
+    }
+    #loader-fill {
+      height: 100%;
+      background: var(--accent);
+      width: 0;
+    }
+
+    /* ─── MOBILE MENU ───────────────────────────────────────────── */
+    #mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(8,8,8,0.97);
+      z-index: 600;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    #mobile-menu.open { display: flex; }
+    #mobile-menu a {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      transition: color .2s ease;
+    }
+    #mobile-menu a:hover { color: var(--accent); }
+    #mobile-close {
+      position: absolute;
+      top: 24px; right: 28px;
+      background: none;
+      border: 1px solid var(--border);
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      color: var(--text);
+      font-size: 1rem;
+      cursor: none;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color .25s ease, color .25s ease;
+    }
+    #mobile-close:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ─── NAVIGATION ────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      padding: 22px 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: padding .35s ease, background .35s ease, border-color .35s ease;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      padding: 14px 52px;
+      background: rgba(8,8,8,0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom-color: var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      cursor: none;
+    }
+    .nav-logo .gt { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 38px;
+    }
+    .nav-links a {
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.01em;
+      position: relative;
+      transition: color .25s ease;
+      cursor: none;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width .3s ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-badge-link {
+      color: var(--accent) !important;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-badge-link::after { background: var(--accent); }
+    .nav-badge-dot {
+      width: 5px; height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+
+    .nav-btn {
+      padding: 9px 22px;
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      border-radius: 100px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: none;
+      transition: background .25s ease, transform .2s var(--ease-spring);
+    }
+    .nav-btn:hover { background: var(--accent); transform: translateY(-1px); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: none;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px; height: 1.5px;
+      background: var(--text);
+    }
+
+    /* ─── SECTION SCAFFOLDING ───────────────────────────────────── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 52px;
+    }
+    section { position: relative; overflow: hidden; }
+
+    .s-label {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .s-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+    }
+
+    /* ─── REVEAL ANIMATIONS ─────────────────────────────────────── */
+    .r { opacity: 0; transform: translateY(32px); }
+    .r-l { opacity: 0; transform: translateX(-40px); }
+    .r-r { opacity: 0; transform: translateX(40px); }
+
+    /* Split text */
+    .sw { display: inline-block; overflow: hidden; vertical-align: bottom; }
+    .swi { display: inline-block; transform: translateY(108%); }
+
+    /* ─── HERO ──────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 48px;
+      padding: 140px 52px 80px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+    .eyebrow-dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.75); }
+    }
+
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3.6rem, 7vw, 6.5rem);
+      font-weight: 800;
+      line-height: 0.97;
+      letter-spacing: -0.045em;
+      margin-bottom: 30px;
+    }
+    .hero-title .a { color: var(--accent); }
+
+    .hero-sub {
+      font-size: 1rem;
+      line-height: 1.78;
+      color: var(--muted);
+      max-width: 420px;
+      margin-bottom: 44px;
+    }
+    .hero-sub strong { color: var(--text); font-weight: 500; }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ─── BUTTONS ───────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 30px;
+      border-radius: 100px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: none;
+      border: none;
+      transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s var(--ease-spring);
+      will-change: transform;
+    }
+    .btn-white { background: var(--text); color: var(--bg); }
+    .btn-white:hover { background: var(--accent); transform: translateY(-3px) scale(1.02); }
+    .btn-ghost { background: transparent; color: var(--text); border: 1px solid rgba(255,255,255,0.18); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+    .btn-accent { background: var(--accent); color: var(--bg); }
+    .btn-accent:hover { opacity: 0.88; transform: translateY(-3px) scale(1.02); }
+
+    /* ─── HERO VISUAL ───────────────────────────────────────────── */
+    .hero-visual {
+      position: relative;
+      height: 520px;
+    }
+    .h-card {
+      position: absolute;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px;
+      will-change: transform;
+    }
+    .h-card-icon {
+      width: 38px; height: 38px;
+      background: rgba(201,240,84,0.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+    }
+    .h-card-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .h-card-sub { font-size: 0.75rem; color: var(--accent); font-style: italic; }
+    .h-card-modules {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+    }
+    .h-card-mod {
+      font-size: 0.72rem;
+      color: rgba(240,240,240,0.55);
+      padding: 5px 8px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 6px;
+    }
+    .h-card-mod-label {
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(240,240,240,0.28);
+      margin-bottom: 12px;
+    }
+    .hero-glow {
+      position: absolute;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(201,240,84,0.14), transparent 70%);
+      top: 20%; left: 30%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    /* ─── SERVICES ──────────────────────────────────────────────── */
+    #services { padding: 130px 0; }
+
+    .services-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+    .services-hint {
+      font-size: 0.84rem;
+      color: var(--muted);
+      max-width: 240px;
+      line-height: 1.65;
+    }
+
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .svc-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 26px 80px;
+      cursor: none;
+      position: relative;
+      overflow: hidden;
+      transition: transform .4s var(--ease-spring), border-color .3s ease;
+    }
+    .svc-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% -10%, rgba(201,240,84,0.1), transparent 65%);
+      opacity: 0;
+      transition: opacity .4s ease;
+    }
+    .svc-card:hover { transform: translateY(-7px); border-color: rgba(201,240,84,0.22); }
+    .svc-card:hover::before { opacity: 1; }
+
+    .svc-card.is-accent { background: var(--accent); border-color: var(--accent); }
+    .svc-card.is-accent .svc-num { color: rgba(8,8,8,0.35); }
+    .svc-card.is-accent .svc-title { color: var(--bg); }
+    .svc-card.is-accent .svc-desc { color: rgba(8,8,8,0.6); }
+    .svc-card.is-accent .svc-feat { color: rgba(8,8,8,0.55); }
+    .svc-card.is-accent .svc-feat::before { background: var(--bg); }
+    .svc-card.is-accent .svc-arrow { background: rgba(8,8,8,0.12); color: var(--bg); }
+    .svc-card.is-accent:hover::before { background: radial-gradient(circle at 50% -10%, rgba(255,255,255,0.18), transparent 65%); }
+
+    .svc-num {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: rgba(240,240,240,0.25);
+      margin-bottom: 30px;
+    }
+    .svc-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.28rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .svc-desc {
+      font-size: 0.84rem;
+      line-height: 1.65;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+    .svc-feats { display: flex; flex-direction: column; gap: 7px; }
+    .svc-feat {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: rgba(240,240,240,0.38);
+    }
+    .svc-feat::before {
+      content: '';
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .svc-arrow {
+      position: absolute;
+      bottom: 26px; right: 26px;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      color: rgba(240,240,240,0.35);
+      transition: background .25s ease, color .25s ease, transform .3s var(--ease-spring);
+    }
+    .svc-card:hover .svc-arrow {
+      background: var(--accent);
+      color: var(--bg);
+      transform: rotate(45deg);
+    }
+    .svc-card.is-accent:hover .svc-arrow { background: rgba(8,8,8,0.2); }
+
+    /* ─── SERVICE MODAL ─────────────────────────────────────────── */
+    #svc-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(4,4,4,0.82);
+      z-index: 700;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .svc-modal-box {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 48px;
+      max-width: 560px;
+      width: 92%;
+      position: relative;
+    }
+    .svc-modal-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: none;
+      color: var(--text);
+      font-size: 1rem;
+      cursor: none;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .25s ease;
+    }
+    .svc-modal-close:hover { background: rgba(255,255,255,0.12); }
+    .modal-feat {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      font-size: 0.875rem;
+      color: rgba(240,240,240,0.65);
+      margin-bottom: 8px;
+    }
+    .modal-feat-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ─── PROJECTS ──────────────────────────────────────────────── */
+    #projects { padding: 130px 0; background: #0A0A0A; }
+
+    .proj-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .proj-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 30px;
+      cursor: none;
+      position: relative;
+      overflow: hidden;
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .4s var(--ease-spring), border-color .3s ease;
+    }
+    .proj-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(201,240,84,0.07), transparent 58%);
+      opacity: 0;
+      transition: opacity .4s ease;
+      pointer-events: none;
+    }
+    .proj-card:hover { transform: translateY(-6px); border-color: rgba(201,240,84,0.16); }
+    .proj-card:hover::after { opacity: 1; }
+
+    .proj-num {
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: rgba(240,240,240,0.2);
+      margin-bottom: 10px;
+    }
+    .proj-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .proj-cat {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .proj-tag {
+      padding: 3px 9px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 100px;
+      font-size: 0.68rem;
+      color: rgba(240,240,240,0.35);
+    }
+    .proj-arrow {
+      position: absolute;
+      top: 26px; right: 26px;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem;
+      color: rgba(240,240,240,0.25);
+      transition: background .25s ease, color .25s ease, transform .3s var(--ease-spring);
+    }
+    .proj-card:hover .proj-arrow {
+      background: var(--accent);
+      color: var(--bg);
+      transform: rotate(45deg);
+    }
+
+    /* ─── ABOUT ─────────────────────────────────────────────────── */
+    #about {
+      padding: 130px 0;
+      background: #F2F2F0;
+      color: var(--bg);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(4rem, 8vw, 7rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.045em;
+      margin-bottom: 48px;
+    }
+    .about-title .dim { color: rgba(8,8,8,0.18); }
+
+    .about-body {
+      font-size: 1.05rem;
+      line-height: 1.82;
+      color: rgba(8,8,8,0.58);
+      margin-bottom: 24px;
+    }
+    .about-body strong { color: var(--bg); font-weight: 600; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(8,8,8,0.1);
+      border: 1px solid rgba(8,8,8,0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 52px;
+      contain: layout style;
+    }
+    .stat-cell { padding: 32px 28px; background: #F2F2F0; }
+    .stat-n {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.4rem, 4.5vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--bg);
+      line-height: 1;
+      height: 1em;
+      margin-bottom: 5px;
+      font-variant-numeric: tabular-nums;
+    }
+    .stat-l {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(8,8,8,0.38);
+    }
+    .about-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(8,8,8,0.35);
+      margin-bottom: 48px;
+    }
+
+    /* ─── MARQUEE ───────────────────────────────────────────────── */
+    .marquee-wrap {
+      padding: 26px 0;
+      background: var(--accent);
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 52px;
+      width: max-content;
+      animation: marquee-anim 22s linear infinite;
+    }
+    .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+    @keyframes marquee-anim {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .m-item {
+      display: flex;
+      align-items: center;
+      gap: 52px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--bg);
+      white-space: nowrap;
+    }
+    .m-item .outline {
+      -webkit-text-stroke: 1.5px var(--bg);
+      color: transparent;
+    }
+    .m-star { font-size: 1.1rem; }
+
+    /* ─── CONTACT ───────────────────────────────────────────────── */
+    #contact { padding: 130px 0; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 80px;
+      margin-top: 60px;
+    }
+
+    .contact-heading {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      margin-bottom: 22px;
+    }
+    .contact-heading em { color: var(--accent); font-style: italic; }
+
+    .contact-sub {
+      font-size: 0.9rem;
+      line-height: 1.78;
+      color: var(--muted);
+      margin-bottom: 52px;
+    }
+
+    .contact-detail { margin-bottom: 30px; }
+    .cd-label {
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(240,240,240,0.28);
+      margin-bottom: 7px;
+    }
+    .cd-val {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      transition: color .25s ease;
+      cursor: none;
+    }
+    .cd-val:hover { color: var(--accent); }
+
+    /* Form */
+    .form-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 46px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 20px; }
+    .f-label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(240,240,240,0.35);
+      margin-bottom: 9px;
+    }
+    .f-input, .f-select, .f-textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 13px 17px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color .25s ease, background .25s ease;
+    }
+    .f-input:focus, .f-select:focus, .f-textarea:focus {
+      border-color: var(--accent);
+      background: rgba(201,240,84,0.04);
+    }
+    .f-input::placeholder, .f-textarea::placeholder { color: rgba(240,240,240,0.2); }
+    .f-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(240,240,240,0.35)' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      cursor: none;
+    }
+    .f-select option { background: #111; }
+    .f-textarea { resize: vertical; min-height: 115px; }
+    .btn-submit {
+      width: 100%;
+      padding: 15px 28px;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      border-radius: 12px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: none;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      margin-top: 6px;
+      transition: opacity .25s ease, transform .25s var(--ease-spring);
+    }
+    .btn-submit:hover:not(:disabled) { opacity: 0.88; transform: translateY(-2px); }
+    .btn-submit:disabled { opacity: 0.55; }
+
+    #form-success {
+      display: none;
+      text-align: center;
+      padding: 48px 0;
+    }
+    .success-icon {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: rgba(201,240,84,0.12);
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      font-size: 1.4rem;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .foot-copy { font-size: 0.78rem; color: rgba(240,240,240,0.28); }
+    .foot-logo { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; letter-spacing: -0.03em; }
+    .foot-logo .gt { color: var(--accent); }
+    .foot-links { display: flex; gap: 24px; }
+    .foot-links a { font-size: 0.78rem; color: rgba(240,240,240,0.28); transition: color .25s ease; cursor: none; }
+    .foot-links a:hover { color: var(--accent); }
+
+    /* ─── PROJECT MODAL ─────────────────────────────────────────── */
+    #proj-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(4,4,4,0.88);
+      z-index: 700;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 24px;
+    }
+    .pm-box {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 28px;
+      width: 100%;
+      max-width: 860px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .pm-box::-webkit-scrollbar { width: 4px; }
+    .pm-box::-webkit-scrollbar-thumb { background: rgba(201,240,84,0.4); border-radius: 2px; }
+
+    .pm-left {
+      padding: 48px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .pm-right {
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .pm-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: none;
+      color: var(--text);
+      font-size: 1rem;
+      cursor: none;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .25s ease;
+      z-index: 2;
+    }
+    .pm-close:hover { background: rgba(255,255,255,0.14); }
+
+    .pm-num {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: rgba(240,240,240,0.22);
+      margin-bottom: 12px;
+    }
+    .pm-name {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .pm-category {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .pm-tagline {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+    .pm-desc {
+      font-size: 0.875rem;
+      line-height: 1.78;
+      color: var(--muted);
+      margin-bottom: 32px;
+      flex: 1;
+    }
+    .pm-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 32px;
+    }
+    .pm-tag {
+      padding: 4px 11px;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      color: rgba(240,240,240,0.45);
+    }
+    .pm-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 26px;
+      background: var(--text);
+      color: var(--bg);
+      border-radius: 100px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: none;
+      transition: background .25s ease, transform .2s var(--ease-spring);
+    }
+    .pm-cta:hover { background: var(--accent); transform: translateY(-2px); }
+
+    /* Right column */
+    .pm-hero-band {
+      border-radius: 18px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 170px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pm-hero-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.22);
+    }
+    .pm-hero-tagline {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pm-section-title {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(240,240,240,0.3);
+      margin-bottom: 10px;
+    }
+    .pm-challenge-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .pm-challenge-text {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.45;
+    }
+    .pm-benefit-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .pm-benefit-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .pm-benefit-desc {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    @media (max-width: 720px) {
+      .pm-box { grid-template-columns: 1fr; }
+      .pm-left { border-right: none; border-bottom: 1px solid var(--border); padding: 36px 28px; }
+      .pm-right { padding: 28px; }
+    }
+
+    /* ─── SCROLL LINE DIVIDER ───────────────────────────────────── */
+    .div-line {
+      height: 1px;
+      background: var(--border);
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+
+    /* ─── RESPONSIVE ────────────────────────────────────────────── */
+
+    /* ── Tablet ── */
+    @media (max-width: 1100px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .svc-grid { grid-template-columns: repeat(2, 1fr); }
+      .proj-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 52px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 52px; }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      /* Nav */
+      nav { padding: 16px 20px; }
+      nav.scrolled { padding: 12px 20px; }
+      .nav-links, .nav-btn { display: none; }
+      .hamburger { display: flex; }
+      .nav-logo { font-size: 1.1rem; }
+
+      /* Layout */
+      .container { padding: 0 20px; }
+      #services, #projects, #about, #contact { padding: 80px 0; }
+
+      /* Hero */
+      #hero { padding: 100px 20px 56px; }
+      .hero-title {
+        font-size: clamp(2.4rem, 10vw, 3.6rem);
+        line-height: 1;
+        margin-bottom: 22px;
+      }
+      .hero-eyebrow { font-size: 0.62rem; margin-bottom: 20px; }
+      .hero-sub { font-size: 0.9rem; line-height: 1.7; margin-bottom: 32px; }
+      .hero-btns { gap: 10px; }
+      .hero-btns .btn { padding: 12px 24px; font-size: 0.84rem; width: 100%; justify-content: center; }
+
+      /* Split word: allow natural sizing */
+      .sw { display: block; overflow: hidden; }
+
+      /* Section headers */
+      .s-title { font-size: clamp(1.8rem, 7vw, 2.6rem); }
+      .s-label { font-size: 0.62rem; margin-bottom: 12px; }
+
+      /* Services */
+      .services-header { flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 36px; }
+      .services-hint { max-width: 100%; font-size: 0.8rem; }
+      .svc-grid { grid-template-columns: 1fr; gap: 10px; }
+      .svc-card { padding: 28px 22px 68px; }
+      .svc-title { font-size: 1.15rem; }
+      .svc-desc { font-size: 0.82rem; margin-bottom: 18px; }
+
+      /* Projects */
+      .proj-header { flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 36px; }
+      .proj-grid { grid-template-columns: 1fr; gap: 12px; }
+      .proj-card { min-height: 200px; padding: 26px 22px; }
+      .proj-name { font-size: 1.5rem; }
+      .proj-cat { font-size: 0.75rem; }
+
+      /* About */
+      .about-title {
+        font-size: clamp(2.8rem, 12vw, 4.5rem);
+        margin-bottom: 32px;
+      }
+      .about-label { margin-bottom: 28px; }
+      .about-body { font-size: 0.95rem; line-height: 1.72; }
+      .stats-grid { margin-top: 36px; }
+      .stat-n { font-size: clamp(2rem, 8vw, 2.8rem); }
+      .stat-cell { padding: 24px 20px; }
+
+      /* Marquee */
+      .m-item { font-size: 0.82rem; gap: 32px; }
+      .marquee-track { gap: 32px; }
+
+      /* Contact */
+      .contact-heading { font-size: clamp(2rem, 8vw, 2.8rem); }
+      .contact-sub { font-size: 0.84rem; margin-bottom: 36px; }
+      .cd-val { font-size: 0.88rem; }
+      .form-box { padding: 28px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+
+      /* Footer */
+      footer { padding: 20px; flex-direction: column; gap: 14px; text-align: center; }
+      .foot-logo { display: none; }
+
+      /* Project modal */
+      .pm-box { border-radius: 20px; max-height: 85vh; }
+      .pm-left { padding: 32px 24px; }
+      .pm-right { padding: 24px; }
+      .pm-name { font-size: 1.8rem; }
+      .pm-tagline { font-size: 0.95rem; }
+      .pm-desc { font-size: 0.84rem; }
+      .pm-hero-band { min-height: 130px; padding: 24px 20px; }
+      .pm-hero-tagline { font-size: 1rem; }
+      .pm-cta { width: 100%; justify-content: center; padding: 12px 20px; font-size: 0.84rem; }
+
+      /* Service modal */
+      .svc-modal-box { padding: 36px 24px; border-radius: 20px; }
+
+      /* Mobile menu links */
+      #mobile-menu a { font-size: clamp(1.8rem, 8vw, 2.8rem); }
+    }
+
+    /* ── Small phones ── */
+    @media (max-width: 420px) {
+      #cur-dot, #cur-ring { display: none; }
+      body { cursor: auto; }
+      a, button, [onclick] { cursor: pointer; }
+
+      #hero { padding: 92px 16px 48px; }
+      .container { padding: 0 16px; }
+      nav { padding: 14px 16px; }
+      nav.scrolled { padding: 11px 16px; }
+
+      .hero-title { font-size: 2.2rem; }
+      .hero-sub { font-size: 0.86rem; }
+
+      .s-title { font-size: 1.65rem; }
+      .about-title { font-size: clamp(2.4rem, 14vw, 3.5rem); }
+
+      .proj-name { font-size: 1.35rem; }
+      .proj-card { min-height: 180px; }
+
+      .contact-heading { font-size: 1.8rem; }
+      .form-box { padding: 24px 16px; }
+
+      .pm-left { padding: 28px 20px; }
+      .pm-right { padding: 20px; }
+      .pm-name { font-size: 1.5rem; }
+    }
+  </style>
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "robology",
+    "url": "https://robology.io",
+    "description": "Digitální produktová agentura specializující se na tvorbu webů, mobilních aplikací, AI řešení a softwaru na míru.",
+    "email": "ondrej.fucik@robology.io",
+    "foundingDate": "2017",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "CZ",
+      "addressLocality": "Česká republika"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "CZ"
+    },
+    "knowsLanguage": ["cs", "en"],
+    "sameAs": [
+      "https://www.instagram.com/robology.io/"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Digitální služby",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Tvorba webových stránek a portálů",
+            "description": "Moderní weby s UX/UI designem, SEO optimalizací a správou obsahu."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Vývoj mobilních aplikací",
+            "description": "Nativní i multiplatformní mobilní aplikace pro iOS a Android."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AI a datová řešení",
+            "description": "Integrace umělé inteligence, chatboti, automatizace procesů a analýza dat."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Software na míru",
+            "description": "Komplexní ERP, CRM a interní systémy šité na míru vašemu podnikání."
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "robology",
+    "url": "https://robology.io",
+    "inLanguage": "cs",
+    "description": "Digitální produktová agentura — tvorba webů, aplikací, AI řešení a softwaru na míru."
+  }
+  </script>
+</head>
+<body>
+
+<!-- Cursor -->
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+
+<!-- Scroll progress -->
+<div id="scroll-bar"></div>
+
+<!-- Loader -->
+<div id="loader">
+  <div id="loader-logo">
+    <span class="l-char accent">&gt;</span><span class="l-char">r</span><span class="l-char">o</span><span class="l-char">b</span><span class="l-char">o</span><span class="l-char">l</span><span class="l-char">o</span><span class="l-char">g</span><span class="l-char">y</span>
+  </div>
+  <div id="loader-bar"><div id="loader-fill"></div></div>
+</div>
+
+<!-- Mobile menu -->
+<div id="mobile-menu">
+  <button id="mobile-close" aria-label="Zavřít menu">✕</button>
+  <a href="#services" onclick="closeMM()">Služby</a>
+  <a href="#projects" onclick="closeMM()">Projekty</a>
+  <a href="#about"    onclick="closeMM()">O nás</a>
+  <a href="#contact"  onclick="closeMM()">Kontakt</a>
+  <a href="/web-zdarma" onclick="closeMM()" style="color:var(--accent)">Web zdarma</a>
+</div>
+
+<!-- Navigation -->
+<nav id="navbar" aria-label="Hlavní navigace">
+  <a href="#" class="nav-logo"><span class="gt">&gt;</span>robology</a>
+  <ul class="nav-links">
+    <li><a href="#services">Služby</a></li>
+    <li><a href="#projects">Projekty</a></li>
+    <li><a href="#about">O nás</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+    <li><a href="/web-zdarma" class="nav-badge-link">Web zdarma <span class="nav-badge-dot"></span></a></li>
+  </ul>
+  <a href="#contact" class="nav-btn">Napište nám →</a>
+  <button class="hamburger" id="hamburger" onclick="openMM()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<noscript>
+  <p>robology — Česká digitální produktová agentura. Navrhujeme a vyvíjíme weby, mobilní aplikace, AI řešení a software na míru. Kontaktujte nás na ondrej.fucik@robology.io.</p>
+</noscript>
+
+<main>
+<!-- ════════════════════ HERO ════════════════════ -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow" id="hero-eyebrow">
+      <span class="eyebrow-dot"></span>
+      digitální produktová agentura
+    </div>
+    <h1 class="hero-title">
+      <div class="sw"><span class="swi">Vytváříme</span></div><br>
+      <div class="sw"><span class="swi a">cool věci</span></div><br>
+      <div class="sw"><span class="swi">pro cool lidi.</span></div>
+      <span class="sr-only">robology — Česká digitální agentura pro tvorbu webů, mobilních aplikací, AI řešení a softwaru na míru</span>
+    </h1>
+    <p class="hero-sub" id="hero-sub">
+      Navrhujeme a vyvíjíme kreativní digitální řešení na míru.
+      Pomáháme startupům i zavedeným firmám růst díky softwaru,
+      který <strong>skvěle vypadá a funguje.</strong>
+    </p>
+    <div class="hero-btns" id="hero-btns">
+      <a href="#contact" class="btn btn-white">Napište nám →</a>
+      <a href="#projects" class="btn btn-ghost">Naše práce ↓</a>
+    </div>
+  </div>
+
+  <div class="hero-visual" aria-hidden="true">
+    <div class="hero-glow" style="top:30%;left:40%;"></div>
+
+    <!-- Row 1 left: Web -->
+    <div class="h-card" id="hc1" style="top:0;left:0;width:220px;">
+      <div class="h-card-icon">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9F054" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <div class="h-card-title">Webová platforma</div>
+      <div class="h-card-sub">Optimized ↗</div>
+    </div>
+
+    <!-- Row 1 right (offset down): Mobile -->
+    <div class="h-card" id="hc2" style="top:8%;right:0;width:220px;">
+      <div class="h-card-icon">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9F054" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+      </div>
+      <div class="h-card-title">Mobilní aplikace</div>
+      <div class="h-card-sub">React Native</div>
+    </div>
+
+    <!-- Row 2 left (offset): AI & Data -->
+    <div class="h-card" id="hc4" style="top:30%;left:6%;width:220px;">
+      <div class="h-card-icon">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9F054" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="h-card-title">AI & Data</div>
+      <div class="h-card-sub">LLM Integration</div>
+    </div>
+
+    <!-- Row 2 right (offset down): Software -->
+    <div class="h-card" id="hc5" style="top:40%;right:4%;width:220px;">
+      <div class="h-card-icon">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#C9F054" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <div class="h-card-title">Software na míru</div>
+      <div class="h-card-sub">Scalable ↗</div>
+    </div>
+
+    <!-- Bottom center: Modules -->
+    <div class="h-card" id="hc3" style="bottom:0;left:50%;transform:translateX(-50%);width:320px;">
+      <div class="h-card-mod-label">Klíčové technologické moduly</div>
+      <div class="h-card-modules">
+        <div class="h-card-mod">Responzivní arch.</div>
+        <div class="h-card-mod">Cloud Backend</div>
+        <div class="h-card-mod">UX Design</div>
+        <div class="h-card-mod">API Integrace</div>
+        <div class="h-card-mod">Bezpečnost dat</div>
+        <div class="h-card-mod">Real-time sync</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ SERVICES ════════════════════ -->
+<section id="services" aria-label="Naše služby">
+  <div class="container">
+    <div class="services-header">
+      <div>
+        <p class="s-label r">Naše Služba</p>
+        <h2 class="s-title r">Stavíme produkty,<br>které mají duši.</h2>
+      </div>
+      <p class="services-hint r">Klikněte na kartu<br>pro více detailů.</p>
+    </div>
+
+    <div class="svc-grid">
+      <div class="svc-card r" onclick="openSvcModal(0)">
+        <div class="svc-num">01</div>
+        <h3 class="svc-title">Weby & Portály</h3>
+        <p class="svc-desc">Moderní prezentační weby a komplexní webové platformy, které zaujmou a prodávají.</p>
+        <div class="svc-feats">
+          <div class="svc-feat">Moderní UX/UI</div>
+          <div class="svc-feat">SEO optimalizace</div>
+          <div class="svc-feat">Rychlost & Výkon</div>
+        </div>
+        <div class="svc-arrow">→</div>
+      </div>
+
+      <div class="svc-card is-accent r" onclick="openSvcModal(1)">
+        <div class="svc-num">02</div>
+        <h3 class="svc-title">Aplikace</h3>
+        <p class="svc-desc">Mobilní řešení s dokonalým UX pro iOS i Android.</p>
+        <div class="svc-feats">
+          <div class="svc-feat">iOS & Android</div>
+          <div class="svc-feat">Plynulé animace</div>
+          <div class="svc-feat">Push notifikace</div>
+        </div>
+        <div class="svc-arrow">→</div>
+      </div>
+
+      <div class="svc-card r" onclick="openSvcModal(2)">
+        <div class="svc-num">03</div>
+        <h3 class="svc-title">AI & Data</h3>
+        <p class="svc-desc">Implementace umělé inteligence do vašich procesů.</p>
+        <div class="svc-feats">
+          <div class="svc-feat">Vlastní Chatboti</div>
+          <div class="svc-feat">LLM Integrace</div>
+          <div class="svc-feat">Automatizace</div>
+        </div>
+        <div class="svc-arrow">→</div>
+      </div>
+
+      <div class="svc-card r" onclick="openSvcModal(3)">
+        <div class="svc-num">04</div>
+        <h3 class="svc-title">Software na míru</h3>
+        <p class="svc-desc">Robustní systémy navržené pro růst vašeho podnikání.</p>
+        <div class="svc-feats">
+          <div class="svc-feat">Škálovatelnost</div>
+          <div class="svc-feat">API Integrace</div>
+          <div class="svc-feat">Cloud řešení</div>
+        </div>
+        <div class="svc-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Service Modal -->
+<div id="svc-modal" onclick="closeSvcModal(event)">
+  <div class="svc-modal-box">
+    <button class="svc-modal-close" onclick="closeSvcModalDirect()">✕</button>
+    <div id="m-num" style="font-size:.68rem;font-weight:700;letter-spacing:.1em;color:rgba(240,240,240,.25);margin-bottom:14px;"></div>
+    <h3 id="m-title" style="font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-.035em;margin-bottom:14px;"></h3>
+    <p id="m-desc" style="font-size:.9rem;line-height:1.75;color:var(--muted);margin-bottom:28px;"></p>
+    <div id="m-feats" style="margin-bottom:36px;"></div>
+    <a href="#contact" onclick="closeSvcModalDirect()" class="btn btn-white">Probrat projekt →</a>
+  </div>
+</div>
+
+<!-- ════════════════════ PROJECTS ════════════════════ -->
+<section id="projects" aria-label="Vybrané projekty">
+  <div class="container">
+    <div class="proj-header">
+      <div>
+        <p class="s-label r">Vybrané Projekty</p>
+        <h2 class="s-title r">Vybrané <em style="color:var(--accent);font-style:italic;">Projekty</em></h2>
+      </div>
+      <p style="font-size:.84rem;color:var(--muted);max-width:280px;line-height:1.7;" class="r">Každý projekt je novou příležitostí pro inovaci.</p>
+    </div>
+
+    <div class="proj-grid">
+      <div class="proj-card r" onclick="openProjModal(0)">
+        <div>
+          <div class="proj-num">01</div>
+          <div class="proj-name">erko</div>
+          <div class="proj-cat">Insurtech Mobile App</div>
+          <div class="proj-tags">
+            <span class="proj-tag">React Native</span>
+            <span class="proj-tag">Mobile</span>
+            <span class="proj-tag">Fintech</span>
+          </div>
+        </div>
+        <div class="proj-arrow">→</div>
+      </div>
+
+      <div class="proj-card r" onclick="openProjModal(1)">
+        <div>
+          <div class="proj-num">02</div>
+          <div class="proj-name">tellmee</div>
+          <div class="proj-cat">Social Video App</div>
+          <div class="proj-tags">
+            <span class="proj-tag">Social Media</span>
+            <span class="proj-tag">iOS/Android</span>
+            <span class="proj-tag">Video</span>
+          </div>
+        </div>
+        <div class="proj-arrow">→</div>
+      </div>
+
+      <div class="proj-card r" onclick="openProjModal(2)">
+        <div>
+          <div class="proj-num">03</div>
+          <div class="proj-name">givee</div>
+          <div class="proj-cat">CSR & Giving Platform</div>
+          <div class="proj-tags">
+            <span class="proj-tag">Web Portal</span>
+            <span class="proj-tag">Non-Profit</span>
+          </div>
+        </div>
+        <div class="proj-arrow">→</div>
+      </div>
+
+      <div class="proj-card r" onclick="openProjModal(3)">
+        <div>
+          <div class="proj-num">04</div>
+          <div class="proj-name">Respect Profi</div>
+          <div class="proj-cat">B2B Sales Tool</div>
+          <div class="proj-tags">
+            <span class="proj-tag">Lead Generation</span>
+            <span class="proj-tag">Web Design</span>
+          </div>
+        </div>
+        <div class="proj-arrow">→</div>
+      </div>
+
+      <div class="proj-card r" onclick="openProjModal(4)">
+        <div>
+          <div class="proj-num">05</div>
+          <div class="proj-name">SBD Písek</div>
+          <div class="proj-cat">Internal Portal</div>
+          <div class="proj-tags">
+            <span class="proj-tag">Enterprise</span>
+            <span class="proj-tag">Portal</span>
+          </div>
+        </div>
+        <div class="proj-arrow">→</div>
+      </div>
+
+      <div class="proj-card r" onclick="openProjModal(5)">
+        <div>
+          <div class="proj-num">06</div>
+          <div class="proj-name">mibila</div>
+          <div class="proj-cat">Ordering System</div>
+          <div class="proj-tags">
+            <span class="proj-tag">E-commerce</span>
+            <span class="proj-tag">B2B System</span>
+          </div>
+        </div>
+        <div class="proj-arrow">→</div>
+      </div>
+
+      <div class="proj-card r" onclick="openProjModal(6)" style="grid-column: span 1;">
+        <div>
+          <div class="proj-num">07</div>
+          <div class="proj-name">Inmotion</div>
+          <div class="proj-cat">Health &amp; Fitness App</div>
+          <div class="proj-tags">
+            <span class="proj-tag">Mobile App</span>
+            <span class="proj-tag">Gamification</span>
+            <span class="proj-tag">Education</span>
+          </div>
+        </div>
+        <div class="proj-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Project Modal -->
+<div id="proj-modal" onclick="closeProjModal(event)">
+  <div class="pm-box">
+    <button class="pm-close" onclick="closeProjModalDirect()">✕</button>
+
+    <!-- Left: text info -->
+    <div class="pm-left">
+      <div class="pm-num" id="pm-num"></div>
+      <div class="pm-name" id="pm-name"></div>
+      <div class="pm-category" id="pm-category"></div>
+      <div class="pm-tagline" id="pm-tagline"></div>
+      <p class="pm-desc" id="pm-desc"></p>
+      <div class="pm-tags" id="pm-tags"></div>
+      <a href="#contact" onclick="closeProjModalDirect()" class="pm-cta">Probrat podobný projekt →</a>
+    </div>
+
+    <!-- Right: visual blocks -->
+    <div class="pm-right">
+      <div class="pm-hero-band" id="pm-band">
+        <div class="pm-hero-tagline" id="pm-band-text"></div>
+      </div>
+
+      <div>
+        <div class="pm-section-title">Výzva projektu</div>
+        <div class="pm-challenge-box">
+          <div class="pm-challenge-text" id="pm-challenge"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="pm-section-title">Klíčový přínos</div>
+        <div class="pm-benefit-box">
+          <div class="pm-benefit-name" id="pm-benefit-name"></div>
+          <div class="pm-benefit-desc" id="pm-benefit-desc"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════ ABOUT ════════════════════ -->
+<section id="about" aria-label="O nás">
+  <div class="container">
+    <p class="about-label r">O nás</p>
+    <div class="about-grid">
+      <div>
+        <h2 class="about-title">
+          <div class="sw"><span class="swi">NÁS NIKDY</span></div><br>
+          <div class="sw dim"><span class="swi">NEUŽIJE</span></div><br>
+          <div class="sw"><span class="swi">NUDA.</span></div>
+        </h2>
+      </div>
+
+      <div>
+        <p class="about-body r"><strong>Jsme digitální architekti, kteří boří konvence.</strong> Milujeme výzvy, které jiní vzdávají.</p>
+        <p class="about-body r">Naším cílem je, aby váš projekt nebyl jen dalším webem, ale <strong>digitálním zážitkem</strong>, který si lidé zapamatují. Každý detail ladíme tak dlouho, dokud není perfektní.</p>
+        <p class="about-body r">Naše řešení spojují estetiku s nekompromisní funkcionalitou.</p>
+
+        <div class="stats-grid r">
+          <div class="stat-cell">
+            <div class="stat-n" data-target="50">0</div>
+            <div class="stat-l">+ Projekty</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-n" data-target="100">0</div>
+            <div class="stat-l">% Spokojenost</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-n" data-target="8">0</div>
+            <div class="stat-l">let zkušeností</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-n" data-target="30">0</div>
+            <div class="stat-l">+ Klientů</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ MARQUEE ════════════════════ -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="m-item">&gt;robology <span class="m-star">★</span></div>
+    <div class="m-item outline">Digitální řemeslo <span class="m-star" style="-webkit-text-stroke:0;color:var(--bg)">★</span></div>
+    <div class="m-item">&gt;robology <span class="m-star">★</span></div>
+    <div class="m-item outline">Kreativita &amp; Kód <span class="m-star" style="-webkit-text-stroke:0;color:var(--bg)">★</span></div>
+    <div class="m-item">&gt;robology <span class="m-star">★</span></div>
+    <div class="m-item outline">Digitální řemeslo <span class="m-star" style="-webkit-text-stroke:0;color:var(--bg)">★</span></div>
+    <div class="m-item">&gt;robology <span class="m-star">★</span></div>
+    <div class="m-item outline">Kreativita &amp; Kód <span class="m-star" style="-webkit-text-stroke:0;color:var(--bg)">★</span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="m-item">&gt;robology <span class="m-star">★</span></div>
+    <div class="m-item outline">Digitální řemeslo <span class="m-star" style="-webkit-text-stroke:0;color:var(--bg)">★</span></div>
+    <div class="m-item">&gt;robology <span class="m-star">★</span></div>
+    <div class="m-item outline">Kreativita &amp; Kód <span class="m-star" style="-webkit-text-stroke:0;color:var(--bg)">★</span></div>
+    <div class="m-item">&gt;robology <span class="m-star">★</span></div>
+    <div class="m-item outline">Digitální řemeslo <span class="m-star" style="-webkit-text-stroke:0;color:var(--bg)">★</span></div>
+    <div class="m-item">&gt;robology <span class="m-star">★</span></div>
+    <div class="m-item outline">Kreativita &amp; Kód <span class="m-star" style="-webkit-text-stroke:0;color:var(--bg)">★</span></div>
+  </div>
+</div>
+
+<!-- ════════════════════ CONTACT ════════════════════ -->
+<section id="contact" aria-label="Kontakt">
+  <div class="container">
+    <p class="s-label r">Kontakt</p>
+
+    <div class="contact-grid">
+      <!-- Left info -->
+      <div class="contact-info">
+        <h3 class="contact-heading r">
+          Máte skvělý<br><em>nápad?</em>
+        </h3>
+        <p class="contact-sub r">
+          Rádi s vámi probereme možnosti realizace. Vyplňte formulář nebo nám napište napřímo a začněte tvořit budoucnost svého projektu.
+        </p>
+
+        <div class="contact-detail r">
+          <div class="cd-label">E-mail</div>
+          <a href="mailto:ondrej.fucik@robology.io" class="cd-val">ondrej.fucik@robology.io</a>
+        </div>
+        <div class="contact-detail r">
+          <div class="cd-label">Sociální sítě</div>
+          <a href="https://www.instagram.com/robology.io/" target="_blank" rel="noopener" class="cd-val">@robology.io ↗</a>
+        </div>
+      </div>
+
+      <!-- Right form -->
+      <div class="form-box r">
+        <form id="contact-form">
+          <input type="hidden" name="access_key" value="b73e8686-52d2-41bc-b382-2fca2241a26e" />
+          <input type="hidden" name="subject" value="Nová poptávka z robology.io" />
+          <input type="hidden" name="from_name" value="robology.io kontaktní formulář" />
+          <!-- Honeypot: boti vyplní, lidi ne -->
+          <input type="checkbox" name="botcheck" style="display:none!important" tabindex="-1" autocomplete="off" />
+          <!-- Druhý honeypot: CSS-skrytý textový input -->
+          <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;">
+            <label>Nevyplňujte toto pole<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+          </div>
+          <!-- Timestamp pro time-based detekci -->
+          <input type="hidden" name="_form_loaded_at" id="form-ts" value="" />
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="f-label">Vaše jméno</label>
+              <input type="text" name="name" class="f-input" placeholder="Např. Jan Novák" required />
+            </div>
+            <div class="form-group">
+              <label class="f-label">E-mail</label>
+              <input type="email" name="email" class="f-input" placeholder="vase@adresa.cz" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="f-label">Typ projektu</label>
+            <select name="project_type" class="f-select">
+              <option value="">Vyberte typ...</option>
+              <option>Webová prezentace</option>
+              <option>Mobilní aplikace</option>
+              <option>AI Konzultace</option>
+              <option>Software na míru</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="f-label">Vaše zpráva</label>
+            <textarea name="message" class="f-textarea" placeholder="Popište nám stručně váš nápad..."></textarea>
+          </div>
+
+          <div id="form-error" style="display:none;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);border-radius:12px;padding:12px 16px;margin-bottom:14px;font-size:.84rem;color:#ef4444;">Nepodařilo se odeslat zprávu. Zkuste to prosím znovu.</div>
+
+          <button type="submit" class="btn-submit" id="submit-btn">
+            Odeslat poptávku →
+          </button>
+        </form>
+
+        <div id="form-success">
+          <div class="success-icon">✓</div>
+          <div style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:8px;">Zpráva odeslána!</div>
+          <div style="font-size:.875rem;color:var(--muted);line-height:1.75;">Díky za zájem, Ondřej se vám ozve co nejdříve na zadaný e-mail.</div>
+          <button onclick="resetForm()" style="margin-top:24px;background:none;border:1px solid var(--border);color:var(--muted);padding:9px 22px;border-radius:100px;font-size:.82rem;cursor:none;transition:all .25s ease;" onmouseover="this.style.borderColor='#C9F054';this.style.color='#C9F054'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.color='rgba(240,240,240,0.45)'">Poslat další zprávu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="foot-copy">© 2025–2026 &gt;robology. Všechna práva vyhrazena.</div>
+  <a href="#" class="foot-logo"><span class="gt">&gt;</span>robology</a>
+  <div class="foot-links">
+    <a href="#">Ochrana soukromí</a>
+    <a href="#">Obchodní podmínky</a>
+  </div>
+</footer>
+
+<!-- ════════════════════ JS ════════════════════ -->
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// Hide hero elements that animate in after the loader
+gsap.set('#hero-eyebrow, #hero-sub, #hero-btns', { opacity: 0, y: 20 });
+
+/* ── Cursor ─────────────────────────────────────── */
+const dot  = document.getElementById('cur-dot');
+const ring = document.getElementById('cur-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  gsap.to(dot, { x: mx, y: my, duration: 0.08, ease: 'none' });
+});
+
+(function loopRing() {
+  rx += (mx - rx) * 0.11;
+  ry += (my - ry) * 0.11;
+  ring.style.left = rx + 'px';
+  ring.style.top  = ry + 'px';
+  requestAnimationFrame(loopRing);
+})();
+
+document.querySelectorAll('a, button, [onclick], .proj-card, .svc-card').forEach(el => {
+  el.addEventListener('mouseenter', () => ring.classList.add('expand'));
+  el.addEventListener('mouseleave', () => ring.classList.remove('expand'));
+});
+
+/* ── Scroll progress ─────────────────────────────── */
+const scrollBar = document.getElementById('scroll-bar');
+window.addEventListener('scroll', () => {
+  const p = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+  scrollBar.style.transform = `scaleX(${p})`;
+}, { passive: true });
+
+/* ── Navbar ──────────────────────────────────────── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* ── Mobile menu ─────────────────────────────────── */
+function openMM()  { document.getElementById('mobile-menu').classList.add('open'); }
+function closeMM() { document.getElementById('mobile-menu').classList.remove('open'); }
+document.getElementById('mobile-close').addEventListener('click', closeMM);
+
+/* ── Smooth anchor scroll ────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (!t) return;
+    e.preventDefault();
+    const y = t.getBoundingClientRect().top + window.scrollY - 76;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  });
+});
+
+/* ── Loader ──────────────────────────────────────── */
+window.addEventListener('load', () => {
+  const chars = document.querySelectorAll('.l-char');
+  const fill  = document.getElementById('loader-fill');
+  const loader = document.getElementById('loader');
+
+  const tl = gsap.timeline({
+    onComplete: () => {
+      gsap.to(loader, {
+        opacity: 0, duration: 0.55, delay: 0.1,
+        onComplete: () => {
+          loader.style.display = 'none';
+          initHero();
+          initScrollAnims();
+        }
+      });
+    }
+  });
+
+  tl.to(chars, { y: 0, duration: 0.65, stagger: 0.045, ease: 'power3.out' })
+    .to(fill,  { width: '100%', duration: 0.55, ease: 'power2.inOut' }, '-=0.2');
+});
+
+/* ── Hero animations (post-loader) ──────────────── */
+function initHero() {
+  // Word reveal
+  gsap.to('.hero-title .swi', {
+    y: 0, duration: 1, stagger: 0.14, ease: 'power4.out'
+  });
+
+  // Fade-ins (use gsap.to — initial state set via gsap.set above)
+  gsap.to('#hero-eyebrow', { opacity: 1, y: 0, duration: 0.8, delay: 0.35, ease: 'power3.out' });
+  gsap.to('#hero-sub',     { opacity: 1, y: 0, duration: 0.8, delay: 0.55, ease: 'power3.out' });
+  gsap.to('#hero-btns',    { opacity: 1, y: 0, duration: 0.8, delay: 0.7,  ease: 'power3.out' });
+
+  // Cards
+  gsap.from('#hc1', { opacity: 0, x: -44, duration: 0.95, delay: 0.5,  ease: 'power3.out' });
+  gsap.from('#hc2', { opacity: 0, x:  44, duration: 0.95, delay: 0.65, ease: 'power3.out' });
+  gsap.from('#hc4', { opacity: 0, x: -44, duration: 0.95, delay: 0.8,  ease: 'power3.out' });
+  gsap.from('#hc5', { opacity: 0, x:  44, duration: 0.95, delay: 0.95, ease: 'power3.out' });
+  gsap.from('#hc3', { opacity: 0, y:  44, duration: 0.95, delay: 1.1,  ease: 'power3.out' });
+
+  // Float loops
+  gsap.to('#hc1', { y: -12, duration: 3.2,  ease: 'sine.inOut', yoyo: true, repeat: -1 });
+  gsap.to('#hc2', { y:  10, duration: 3.6,  ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 0.4 });
+  gsap.to('#hc4', { y:  11, duration: 3.4,  ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 0.8 });
+  gsap.to('#hc5', { y: -10, duration: 3.8,  ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 1.0 });
+  gsap.to('#hc3', { y:  -8, duration: 4.2,  ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 1.4 });
+}
+
+/* ── Scroll-triggered animations ────────────────── */
+function initScrollAnims() {
+  // Generic reveals
+  gsap.utils.toArray('.r').forEach(el => {
+    const tween = gsap.fromTo(el,
+      { opacity: 0, y: 36 },
+      { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 86%', toggleActions: 'play none none none' }
+      }
+    );
+    // Start stat counters only after their parent grid finishes revealing
+    if (el.classList.contains('stats-grid')) {
+      tween.eventCallback('onComplete', () => {
+        el.querySelectorAll('.stat-n[data-target]').forEach(sn => {
+          const target = +sn.dataset.target;
+          let last = -1;
+          gsap.to({ v: 0 }, {
+            v: target, duration: 1.6, ease: 'power2.out',
+            onUpdate() {
+              const cur = Math.round(this.targets()[0].v);
+              if (cur !== last) { sn.textContent = last = cur; }
+            }
+          });
+        });
+      });
+    }
+  });
+
+  // Service cards stagger
+  gsap.fromTo('.svc-card',
+    { opacity: 0, y: 44 },
+    { opacity: 1, y: 0, duration: 0.75, stagger: 0.1, ease: 'power3.out',
+      scrollTrigger: { trigger: '.svc-grid', start: 'top 82%' }
+    }
+  );
+
+  // Project cards stagger
+  gsap.fromTo('.proj-card',
+    { opacity: 0, y: 44 },
+    { opacity: 1, y: 0, duration: 0.75, stagger: 0.08, ease: 'power3.out',
+      scrollTrigger: { trigger: '.proj-grid', start: 'top 82%' }
+    }
+  );
+
+  // About title word reveal
+  gsap.utils.toArray('#about .swi').forEach((el, i) => {
+    gsap.to(el, {
+      y: 0, duration: 1, delay: i * 0.1, ease: 'power4.out',
+      scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+    });
+  });
+
+  // Stat counters are now triggered via the .stats-grid reveal callback above
+}
+
+/* ── Project card spotlight ──────────────────────── */
+document.querySelectorAll('.proj-card').forEach(c => {
+  c.addEventListener('mousemove', e => {
+    const r = c.getBoundingClientRect();
+    c.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+    c.style.setProperty('--my', ((e.clientY - r.top)  / r.height * 100) + '%');
+  });
+});
+
+/* ── Magnetic effect on CTA buttons ─────────────── */
+document.querySelectorAll('.btn, .nav-btn, .btn-submit').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const r = btn.getBoundingClientRect();
+    const dx = e.clientX - r.left - r.width  / 2;
+    const dy = e.clientY - r.top  - r.height / 2;
+    gsap.to(btn, { x: dx * 0.22, y: dy * 0.22, duration: 0.35, ease: 'power2.out' });
+  });
+  btn.addEventListener('mouseleave', () => {
+    gsap.to(btn, { x: 0, y: 0, duration: 0.55, ease: 'elastic.out(1, 0.45)' });
+  });
+});
+
+/* ── Service modal ───────────────────────────────── */
+const SVCS = [
+  {
+    num: '01', title: 'Weby & Portály',
+    desc: 'Vytváříme weby, které nejsou jen hezké na pohled, ale jsou navrženy pro maximální konverzi a výkon. Od jednoduchých landing pages po komplexní rezervační systémy.',
+    feats: ['Moderní UX/UI', 'SEO optimalizace', 'Rychlost & Výkon', 'Správa obsahu (CMS)']
+  },
+  {
+    num: '02', title: 'Aplikace',
+    desc: 'Navrhujeme a vyvíjíme nativní i multiplatformní mobilní aplikace, které uživatelé milují otevírat každý den. Specializujeme se na React Native a hladký chod.',
+    feats: ['iOS & Android', 'Plynulé animace', 'Offline mód', 'Push notifikace']
+  },
+  {
+    num: '03', title: 'AI & Data',
+    desc: 'Pomáháme firmám využít potenciál umělé inteligence. Od integrace LLM modelů (ChatGPT/Gemini) po automatizaci nudných procesů a analýzu dat.',
+    feats: ['Vlastní Chatboti', 'LLM Integrace', 'Analýza dat', 'Automatizace']
+  },
+  {
+    num: '04', title: 'Software na míru',
+    desc: 'Stavíme komplexní systémy, které řeší specifické potřeby vaší firmy. ERP, CRM nebo interní portály, které rostou s vámi a ušetří vám čas.',
+    feats: ['Škálovatelnost', 'Bezpečnost', 'API Integrace', 'Cloud řešení']
+  }
+];
+
+function openSvcModal(i) {
+  const s = SVCS[i];
+  const modal = document.getElementById('svc-modal');
+  document.getElementById('m-num').textContent   = s.num;
+  document.getElementById('m-title').textContent = s.title;
+  document.getElementById('m-desc').textContent  = s.desc;
+  document.getElementById('m-feats').innerHTML   = s.feats.map(f =>
+    `<div class="modal-feat"><div class="modal-feat-dot"></div>${f}</div>`
+  ).join('');
+  modal.style.display = 'flex';
+  gsap.fromTo(modal.querySelector('.svc-modal-box'),
+    { opacity: 0, y: 28, scale: 0.96 },
+    { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: 'power3.out' }
+  );
+}
+
+function closeSvcModal(e) {
+  if (e.target !== e.currentTarget) return;
+  _doCloseModal();
+}
+function closeSvcModalDirect() { _doCloseModal(); }
+
+function _doCloseModal() {
+  const modal = document.getElementById('svc-modal');
+  const box   = modal.querySelector('.svc-modal-box');
+  gsap.to(box, {
+    opacity: 0, y: 20, scale: 0.96, duration: 0.3, ease: 'power2.in',
+    onComplete: () => { modal.style.display = 'none'; }
+  });
+}
+
+/* ── Project modal ───────────────────────────────── */
+const PROJECTS = [
+  {
+    num: '01', name: 'erko', category: 'Insurtech Mobile App',
+    color: '#1D3461',
+    tagline: 'Pojištění vozidla a asistence v jedné aplikaci.',
+    desc: 'Kompletní správa pojištění a silniční asistence přímo v kapse. Vytvořili jsme mobilní aplikaci pro RESPECT Group, která sdružuje vše, co řidič potřebuje — od správy smluv po okamžitou asistenci na cestách.',
+    challenge: 'Jak můžeme řidičům usnadnit správu jejich pojištění v jedné přehledné aplikaci?',
+    benefit: 'Informace vždy při ruce.',
+    benefitDesc: 'Veškerá dokumentace, kontakty na asistenci a přehled smluv — vše dostupné okamžitě, i bez připojení k internetu.',
+    tags: ['React Native', 'Mobile Development', 'UX/UI Design', 'Fintech', 'iOS & Android']
+  },
+  {
+    num: '02', name: 'tellmee', category: 'Social Video App',
+    color: '#C04F15',
+    tagline: 'Tvoř videa, která zaujmou.',
+    desc: 'Kompletní mobilní ekosystém pro sdílení autentických momentů. Od architektury aplikace přes UX design až po finální implementaci — vytvořili jsme platformu, kde uživatelé odpovídají na otázky formou videa.',
+    challenge: 'Jak mohou uživatelé tvořit co nejautentičtější video na první pokus, bez nutnosti opakovaného natáčení?',
+    benefit: 'Autentické videoodpovědi.',
+    benefitDesc: 'Propracovaný systém profilů, interaktivní feed a nativní video editor přizpůsobený pro přirozený projev.',
+    tags: ['Social Media', 'Mobile UI/UX', 'Video Streaming', 'iOS/Android', 'React Native']
+  },
+  {
+    num: '03', name: 'givee', category: 'CSR & Giving Platform',
+    color: '#00796B',
+    tagline: 'Platforma, která rozdává radost.',
+    desc: 'Webová platforma propojující neziskové organizace s firemními dárci a dobrovolníky. Intuitivní rozhraní pro správu fundraisingových kampaní, hlasování a transparentní přehled financí.',
+    challenge: 'Jak poskytnout neziskovým organizacím prostor, kde mohou prezentovat své projekty a oslovit dárce?',
+    benefit: 'Hlasuj pro své oblíbené projekty.',
+    benefitDesc: 'Zaměstnanci firem hlasují o rozdělení CSR rozpočtu přímo v aplikaci — jednoduchý a transparentní proces od A do Z.',
+    tags: ['Non-Profit', 'Web Portal', 'Payment Integration', 'CSR', 'React']
+  },
+  {
+    num: '04', name: 'Respect Profi', category: 'B2B Sales Tool',
+    color: '#AD1457',
+    tagline: 'Sjednávač pojištění pro malé a střední podnikatele.',
+    desc: 'Komplexní webová aplikace pro sjednávání pojištění s inteligentním formulářem, který je napojený přímo na interní informační systém RESPECT Group. Efektivní sběr a kvalifikace leadů v reálném čase.',
+    challenge: 'Jak pomoci klientovi získat co nejkvalitnější leady z online prostředí a propojit je přímo s CRM?',
+    benefit: 'Generování leadů přímo do informačního systému.',
+    benefitDesc: 'Každý vyplněný formulář se automaticky přenese do interního systému jako kvalifikovaný lead — bez ruční práce a ztráty dat.',
+    tags: ['Business Logic', 'Lead Generation', 'Web Design', 'API Integrace', 'CRM']
+  },
+  {
+    num: '05', name: 'SBD Písek', category: 'Internal Portal',
+    color: '#2E7D32',
+    tagline: 'Informovaní členové družstva.',
+    desc: 'Interní digitální systém pro bytové družstvo SBD Písek. Nahradili jsme zastaralé nástěnky a tištěné oznámení moderním portálem pro sdílení informací, správu dokumentů a komunikaci s členy.',
+    challenge: 'Jak zajistit plynulé a transparentní sdílení informací napříč celým bytovým družstvem bez technických bariér?',
+    benefit: 'Kdo potřebuje nástěnku.',
+    benefitDesc: 'Digitální nástěnka přístupná z jakéhokoli zařízení — oznámení, dokumenty, zápisy ze schůzí a kontakty vždy po ruce.',
+    tags: ['Enterprise System', 'Information Design', 'Portal', 'UX/UI', 'Web']
+  },
+  {
+    num: '06', name: 'mibila', category: 'Ordering System',
+    color: '#37474F',
+    tagline: 'Interní systém pro správu objednávek.',
+    desc: 'Robustní B2B systém pro správu objednávek ve vysoce specializovaném odvětví. Zákaznické rozhraní pro snadné objednávání i administrační panel pro kompletní správu celého procesu — v jednom řešení.',
+    challenge: 'Jak obsloužit velké množství specifických objednávek a zároveň zachovat přehlednost pro zákazníky i administrátory?',
+    benefit: 'Intuitivní objednávkový systém.',
+    benefitDesc: 'Zákazník zadá objednávku za minuty, administrátor ji vidí okamžitě — celý tok od poptávky po dodání je automatizovaný.',
+    tags: ['E-commerce', 'Internal Logic', 'B2B System', 'Admin Panel', 'Node.js']
+  },
+  {
+    num: '07', name: 'Inmotion', category: 'Health & Fitness App',
+    color: '#4A148C',
+    tagline: 'Kdo se hýbe, vyhrává.',
+    desc: 'Mobilní aplikace pro měření a gamifikaci pohybové aktivity žáků. Prostřednictvím výzev, bodů a žebříčků motivujeme mladé lidi k pravidelnému pohybu. Propojení sportu se zábavou v moderním digitálním formátu.',
+    challenge: 'Jak motivovat žáky, aby se dobrovolně a pravidelně zapojovali do pohybových aktivit mimo školní výuku?',
+    benefit: 'Měření pohybové aktivity.',
+    benefitDesc: 'Žáci plní denní pohybové výzvy, sbírají body a srovnávají se s kamarády — pohyb se stává hrou, ne povinností.',
+    tags: ['Health & Fitness', 'Mobile App', 'Gamification', 'Education', 'React Native']
+  }
+];
+
+function openProjModal(i) {
+  const p = PROJECTS[i];
+  const modal = document.getElementById('proj-modal');
+  document.getElementById('pm-num').textContent        = p.num;
+  document.getElementById('pm-name').textContent       = p.name;
+  document.getElementById('pm-category').textContent   = p.category;
+  document.getElementById('pm-tagline').textContent    = p.tagline;
+  document.getElementById('pm-desc').textContent       = p.desc;
+  document.getElementById('pm-challenge').textContent  = p.challenge;
+  document.getElementById('pm-benefit-name').textContent = p.benefit;
+  document.getElementById('pm-benefit-desc').textContent = p.benefitDesc;
+  document.getElementById('pm-band').style.background  = p.color;
+  document.getElementById('pm-band-text').textContent  = p.tagline;
+  document.getElementById('pm-tags').innerHTML = p.tags.map(t =>
+    `<span class="pm-tag">${t}</span>`
+  ).join('');
+  // Color-tint the name accent
+  document.getElementById('pm-name').style.color = p.color === '#37474F' ? 'var(--text)' : p.color;
+  document.getElementById('pm-name').style.webkitTextStroke = '';
+
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  const box = modal.querySelector('.pm-box');
+  gsap.fromTo(box,
+    { opacity: 0, y: 36, scale: 0.97 },
+    { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: 'power3.out' }
+  );
+}
+
+function closeProjModal(e) {
+  if (e.target !== e.currentTarget) return;
+  _doCloseProjModal();
+}
+function closeProjModalDirect() { _doCloseProjModal(); }
+
+function _doCloseProjModal() {
+  const modal = document.getElementById('proj-modal');
+  const box   = modal.querySelector('.pm-box');
+  gsap.to(box, {
+    opacity: 0, y: 24, scale: 0.97, duration: 0.3, ease: 'power2.in',
+    onComplete: () => {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  });
+}
+
+// Close on Escape key
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    if (document.getElementById('proj-modal').style.display === 'flex') _doCloseProjModal();
+    if (document.getElementById('svc-modal').style.display === 'flex') _doCloseModal();
+  }
+});
+
+/* ── Contact form → Web3Forms + anti-spam ────────── */
+
+// Zapiš čas načtení formuláře — pokud submit přijde pod 3 s, je to bot
+document.getElementById('form-ts').value = Date.now();
+
+document.getElementById('contact-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const form = e.target;
+  const btn  = document.getElementById('submit-btn');
+  const errBox = document.getElementById('form-error');
+
+  // ── Anti-spam kontroly ──────────────────────────
+  // 1. Honeypot: pokud je textový honeypot vyplněný → tichý fail
+  if (form.elements.website && form.elements.website.value !== '') {
+    btn.disabled = true;
+    btn.textContent = 'Odesílám...';
+    await new Promise(r => setTimeout(r, 1500));
+    form.style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+    return; // Bot si myslí, že odeslal
+  }
+
+  // 2. Time check: pod 3 sekundy = bot
+  const loadedAt = parseInt(form.elements._form_loaded_at.value, 10);
+  if (loadedAt && (Date.now() - loadedAt) < 3000) {
+    btn.disabled = true;
+    btn.textContent = 'Odesílám...';
+    await new Promise(r => setTimeout(r, 1500));
+    form.style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+    return;
+  }
+
+  // ── Odeslání ────────────────────────────────────
+  btn.disabled = true;
+  btn.textContent = 'Odesílám...';
+  errBox.style.display = 'none';
+
+  const formData = new FormData(form);
+  // Odstraň honeypot pole z odeslaných dat
+  formData.delete('website');
+  formData.delete('_form_loaded_at');
+
+  try {
+    const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+    const json = await res.json();
+
+    if (json.success) {
+      form.style.display = 'none';
+      errBox.style.display = 'none';
+      const suc = document.getElementById('form-success');
+      suc.style.display = 'block';
+      gsap.from(suc, { opacity: 0, y: 20, duration: 0.5, ease: 'power3.out' });
+    } else {
+      throw new Error(json.message || 'Chyba odeslání');
+    }
+  } catch {
+    btn.disabled = false;
+    btn.textContent = 'Odeslat poptávku →';
+    errBox.style.display = 'block';
+    gsap.from(errBox, { opacity: 0, y: 10, duration: 0.3, ease: 'power2.out' });
+  }
+});
+
+function resetForm() {
+  document.getElementById('contact-form').reset();
+  document.getElementById('contact-form').style.display = 'block';
+  document.getElementById('form-success').style.display = 'none';
+  document.getElementById('form-error').style.display   = 'none';
+  document.getElementById('submit-btn').disabled = false;
+  document.getElementById('submit-btn').textContent = 'Odeslat poptávku →';
+}
+</script>
+</body>
+</html>
